@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useSwipeable } from "react-swipeable";
 
 const slides = [
   {
@@ -31,6 +32,12 @@ export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const slideInterval = useRef<NodeJS.Timeout | null>(null);
 
+  const startAutoPlay = () => {
+    slideInterval.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 7000);
+  };
+
   useEffect(() => {
     startAutoPlay();
     return () => {
@@ -38,14 +45,18 @@ export default function HeroSlider() {
     };
   }, []);
 
-  const startAutoPlay = () => {
-    slideInterval.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 7000);
-  };
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => setCurrent((prev) => (prev + 1) % slides.length),
+    onSwipedRight: () =>
+      setCurrent((prev) => (prev - 1 + slides.length) % slides.length),
+    trackMouse: true, // allows swipe with mouse on desktop too
+  });
 
   return (
-    <section className="relative h-[550px] sm:h-[620px] md:h-[700px] lg:h-[780px] xl:h-[650px] overflow-hidden">
+    <section
+      {...swipeHandlers}
+      className="relative h-[550px] sm:h-[620px] md:h-[700px] lg:h-[780px] xl:h-[650px] overflow-hidden"
+    >
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -83,7 +94,6 @@ export default function HeroSlider() {
             </div>
           </div>
 
-          {/* Label */}
           {index === current && (
             <div className="absolute top-6 sm:top-10 right-4 sm:right-10 bg-white text-[#CC3333] text-lg sm:text-xl font-extrabold px-6 py-3 shadow-lg z-30 tracking-wide uppercase">
               {slide.label}
@@ -92,7 +102,6 @@ export default function HeroSlider() {
         </div>
       ))}
 
-      {/* Dots */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2 z-30">
         {slides.map((_, i) => (
           <button
