@@ -45,7 +45,7 @@ export default function AboutSection() {
         {/* Image */}
         <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-lg">
           <Image
-            src="/whyUs.jpg"
+            src="/About.jpeg"
             alt="JRS Building Contractor team at work"
             fill
             className="object-cover"

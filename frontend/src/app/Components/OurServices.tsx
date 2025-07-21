@@ -24,7 +24,7 @@ const services = [
   },
   {
     title: "Bathroom Upgrades",
-    image: "/bath.jpeg",
+    image: "/bath3.jpeg",
     description: "Beautiful bathrooms that combine comfort and elegance.",
     link: "/services/bathroom-upgrades",
   },

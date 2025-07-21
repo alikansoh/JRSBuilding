@@ -9,7 +9,7 @@ const slides = [
     title: "Building Britain’s Future with Quality & Integrity",
     description:
       "Trusted construction services across the UK — residential, commercial, and industrial projects delivered on time and on budget.",
-    image: "/kitchen.jpg",
+    image: "/kit.jpeg",
     label: "Kitchen",
   },
   {
@@ -23,7 +23,7 @@ const slides = [
     title: "Reliable Commercial & Industrial Projects",
     description:
       "From offices to warehouses, our team ensures projects meet the highest standards.",
-    image: "/living.jpg",
+    image: "/living1.jpeg",
     label: "Living Room",
   },
 ];
