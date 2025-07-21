@@ -161,11 +161,11 @@ export default function Navbar() {
             Get an Instant Quote
           </span>
           <a
-            href="mailto:info@coldfix.co.uk"
+            href="mailto:info@jrs-building.co.uk"
             className="flex items-center gap-2 hover:underline text-[#1C1C3A] font-medium"
           >
             <FiMail className="w-5 h-5 text-[#CC3333] transition-transform duration-300 hover:rotate-[15deg]" />
-            <span>info@coldfix.co.uk</span>
+            <span>info@jrs-building.co.uk</span>
           </a>
           <a
             href="tel:+447123456789"
@@ -285,11 +285,11 @@ export default function Navbar() {
             </p>
 
             <a
-              href="mailto:info@coldfix.co.uk"
+              href="mailto:info@jrs-building.co.uk"
               className="flex items-center gap-3 text-[#1C1C3A] hover:underline mb-3"
             >
               <FiMail className="w-6 h-6 text-[#CC3333]" />
-              <span>info@coldfix.co.uk</span>
+              <span>info@jrs-building.co.uk</span>
             </a>
 
             <a

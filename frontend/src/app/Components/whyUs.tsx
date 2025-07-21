@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const stats = [
   { label: "Projects Completed", value: 100, suffix: "+" },
   { label: "Years of Experience", value: 20, suffix: "+" },
-  { label: "Expert Team Members", value: 50, suffix: "+" },
+  { label: "Expert Team Members", value: 20, suffix: "+" },
   { label: "Client Satisfaction", value: 95, suffix: "%" },
 ];
 
@@ -60,7 +60,7 @@ export default function AboutSection() {
             London’s Premier Building & Renovation Experts
           </h2>
           <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
-            Searching for trusted builders in London to transform your residential or commercial property? <strong>JRS Building Contractor</strong> brings over 20 years of experience delivering reliable, high-quality construction, renovation, and refurbishment solutions tailored to your unique needs.
+            Searching for trusted builders in London to transform your residential or commercial property? <strong>JRS Building Contractors</strong> brings over 20 years of experience delivering reliable, high-quality construction, renovation, and refurbishment solutions tailored to your unique needs.
           </p>
           <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
             We pride ourselves on attention to detail, craftsmanship, and communication—backed by premium materials and a skilled team. From concept to completion, we ensure a seamless and stress-free experience that adds value to your property and enhances your lifestyle.
