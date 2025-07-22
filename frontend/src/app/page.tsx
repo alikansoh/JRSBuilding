@@ -3,6 +3,8 @@ import Hero from "./Components/Hero"
 import WhyUs from './Components/whyUs'
 import OurServices from './Components/OurServices'
 import HowWeWork from './Components/HowWeWork'
+import RecentProjects from "./Components/RecentProject";
+
 
 export default function Home() {
   return (
@@ -11,6 +13,7 @@ export default function Home() {
    <WhyUs/>
    <OurServices/>
    <HowWeWork/>
+   <RecentProjects/>
 
     </div>  );
 }
