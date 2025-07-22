@@ -31,25 +31,25 @@ const projects = [
 
 export default function RecentProjects() {
   return (
-    <section className="bg-gradient-to-br from-white via-gray-100 to-gray-200 pt-24 pb-16 px-4 sm:px-6 lg:px-12">
+    <section className="bg-gradient-to-br from-white via-gray-100 to-gray-200 pt-20 mt-10 pb-20 px-6 sm:px-12 lg:px-28">
       {/* Section Header */}
-      <div className="text-center mb-12 max-w-2xl mx-auto px-2">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-[#CC3333] mb-4 tracking-tight drop-shadow-md">
+      <div className="text-center mb-16 max-w-3xl mx-auto">
+        <h2 className="text-5xl font-extrabold text-[#CC3333] mb-4 tracking-tight drop-shadow-md">
           Recent Projects
         </h2>
-        <p className="text-gray-700 text-base sm:text-lg font-medium">
-          Transformations we’re proud of — slide to see the difference.
+        <p className="text-gray-700 text-xl font-medium">
+          Transformations we’re proud of. slide to see the difference.
         </p>
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
         {projects.map(({ title, before, after, description, address }, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
+            className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-500 flex flex-col overflow-hidden"
           >
-            <div className="h-[240px] sm:h-[300px] relative rounded-t-2xl overflow-hidden">
+            <div className="h-[280px] sm:h-[350px] relative rounded-t-3xl overflow-hidden">
               <ReactCompareImage
                 leftImage={before}
                 rightImage={after}
@@ -57,50 +57,49 @@ export default function RecentProjects() {
                 rightImageLabel="After"
                 sliderLineWidth={4}
                 sliderLineColor="#CC3333"
-               
               />
             </div>
-            <div className="p-4 flex-grow flex flex-col justify-between">
+            <div className="p-5 flex-grow flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
-                <p className="text-gray-700 text-sm mb-3">{description}</p>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-3">{title}</h3>
+                <p className="text-gray-700 text-base mb-4 leading-relaxed">{description}</p>
               </div>
-              <p className="text-xs text-[#CC3333] font-semibold">{address}</p>
+              <p className="text-sm text-[#CC3333] font-semibold tracking-wide">{address}</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* View All Button */}
-      <div className="text-center mt-12">
+      <div className="text-center mt-10">
         <Link href="/projects" className="relative inline-block group">
           <span className="absolute inset-0 rounded-full bg-[#CC3333] blur opacity-70 group-hover:opacity-100 transition duration-300"></span>
-          <span className="relative inline-block px-8 py-3 text-white font-semibold text-base rounded-full bg-[#b32b2b] group-hover:bg-[#cc4444] shadow-md transition-colors duration-300">
+          <span className="relative inline-block px-12 py-4 text-white font-semibold text-lg rounded-full bg-[#b32b2b] group-hover:bg-[#cc4444] shadow-lg transition-colors duration-300">
             View All Projects
           </span>
         </Link>
       </div>
 
       {/* Call to Action */}
-      <section className="relative mt-10 bg-gradient-to-r from-[#cc3333] to-[#a52a2a] py-12 px-4 sm:px-6 lg:px-20 rounded-2xl shadow-xl overflow-hidden">
+      <section className="relative mt-10 bg-gradient-to-r from-[#cc3333] to-[#a52a2a] py-16 px-6 sm:px-12 lg:px-24 rounded-3xl shadow-2xl overflow-hidden">
         {/* Decorative Blur Circles */}
-        <div className="absolute top-[-80px] left-[-80px] w-[250px] h-[250px] bg-white opacity-10 rounded-full blur-2xl z-0" />
-        <div className="absolute bottom-[-100px] right-[-100px] w-[280px] h-[280px] bg-white opacity-10 rounded-full blur-2xl z-0" />
+        <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-white opacity-10 rounded-full blur-3xl z-0" />
+        <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-white opacity-10 rounded-full blur-2xl z-0" />
 
         <div className="relative z-10 text-center max-w-3xl mx-auto">
-          <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-4 leading-tight drop-shadow-md">
+          <h2 className="text-white text-4xl sm:text-5xl font-extrabold mb-6 leading-tight drop-shadow-md">
             Let’s Bring Your Vision to Life
           </h2>
-          <p className="text-white/90 text-base sm:text-lg mb-6 leading-relaxed">
+          <p className="text-white/90 text-lg sm:text-xl mb-10 leading-relaxed">
             Whether it’s a full renovation or a small improvement, we’re here to deliver stunning results. Reach out today and let’s talk about your next project.
           </p>
 
-          <Link
+          <a
             href="/contact"
-            className="inline-block px-8 py-3 text-white font-semibold text-base bg-white/10 border border-white/20 rounded-full backdrop-blur hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-lg"
+            className="relative inline-block px-10 py-4 text-white font-semibold text-lg bg-white/10 border border-white/20 rounded-full backdrop-blur hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-xl"
           >
-            Get a Free Consultation
-          </Link>
+            Get a Free quote
+          </a>
         </div>
       </section>
     </section>
