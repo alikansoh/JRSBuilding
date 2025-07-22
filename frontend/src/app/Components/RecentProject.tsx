@@ -61,8 +61,6 @@ export default function RecentProjects() {
                 rightImageLabel="After"
                 sliderLineWidth={4}
                 sliderLineColor="#CC3333"
-                containerStyle={{ width: "100%", height: "100%" }}
-                imageStyle={{ objectFit: "cover", width: "100%", height: "100%" }}
               />
             </div>
             <div className="p-6 flex-grow flex flex-col justify-between">
