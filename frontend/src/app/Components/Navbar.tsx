@@ -231,7 +231,7 @@ export default function Navbar() {
               return (
                 <div key={item.href} className="w-full">
                   <button
-                    className="w-full text-lg text-[#1C1C3A] text-left px-4 py-3 flex justify-between items-center font-semibold hover:text-[#CC3333] transition-colors duration-300"
+                    className="w-full text-lg text-[#1C1C3A] text-left px-4 py-2 flex justify-between items-center font-semibold hover:text-[#CC3333] transition-colors duration-300"
                     onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                     aria-expanded={isMobileServicesOpen}
                     aria-controls="mobile-services-submenu"
@@ -293,7 +293,7 @@ export default function Navbar() {
           })}
 
           {/* Contact Info Mobile & Tablet */}
-          <div className="mt-5 w-full text-left text-base font-semibold">
+          <div className=" w-full text-left text-base font-semibold">
             <p className="text-sm text-[#CC3333] font-bold tracking-wide uppercase mb-3">
               Get an Instant Quote
             </p>
