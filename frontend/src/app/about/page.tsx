@@ -20,7 +20,7 @@ export default function AboutPage() {
         <p>
           Our team is made up of experienced builders, engineers, and project managers who are passionate
           about creating spaces that stand the test of time. From <strong>loft conversions</strong> and
-          <strong>home extensions</strong> to full <strong>property renovations</strong>, we approach every
+          <strong> home extensions</strong> to full <strong>property renovations</strong>, we approach every
           project with professionalism and attention to detail.
         </p>
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
         <div className="md:flex-1">
           <h2 className="text-3xl font-bold mb-4 text-[#1E3A5F]">Our Mission</h2>
           <p className="text-gray-700 mb-10 md:mb-0">
-            To provide reliable, high-quality building solutions that meet our clients&apos; unique needs and exceed expectations, while maintaining the highest standards of integrity, professionalism, and safety.
+            To provide reliable, high quality building solutions that meet our clients&apos; unique needs and exceed expectations, while maintaining the highest standards of integrity, professionalism, and safety.
           </p>
 
           <h2 className="text-3xl font-bold mb-4 text-[#1E3A5F]">Our Vision</h2>

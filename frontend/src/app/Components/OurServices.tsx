@@ -44,13 +44,13 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="bg-[#fefefe] pb-20 px-6 sm:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-[#CC3333] tracking-tight mb-4">
-          What We Offer
+    <section className="bg-[#fefefe] pt-12 pb-10 px-6 sm:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto text-center mb-16">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-[#CC3333] tracking-tight mb-4">
+          Our Services
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-          Discover our premium range of construction and renovation services, designed to elevate your space with excellence and precision.
+          Premium construction and renovation solutions designed to transform your property with style and precision.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export default function ServicesSection() {
         {services.map((service, index) => (
           <div
             key={index}
-            className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 border border-gray-200 group flex flex-col"
+            className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group flex flex-col"
           >
             <div className="relative w-full h-60 overflow-hidden">
               <Image
@@ -66,20 +66,23 @@ export default function ServicesSection() {
                 alt={service.title}
                 width={800}
                 height={500}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
               />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition duration-300"></div>
             </div>
-            <div className="p-6 lg:p-8 text-center flex flex-col flex-grow justify-between">
+
+            <div className="p-6 lg:p-8 text-center flex flex-col justify-between flex-grow">
               <div>
-                <h3 className="text-2xl font-semibold text-[#CC3333] mb-3 group-hover:text-black transition">
+                <h3 className="text-2xl font-semibold text-[#CC3333] mb-4 group-hover:text-black transition duration-300">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-base leading-relaxed mb-6">
                   {service.description}
                 </p>
               </div>
-              <Link href={service.link}>
-                <span className="inline-block bg-[#CC3333] text-white text-sm font-medium px-6 py-2 border border-[#CC3333] hover:bg-transparent hover:text-[#CC3333] transition duration-300 uppercase tracking-wider">
+
+              <Link href={service.link} passHref>
+                <span className="inline-block bg-[#CC3333] text-white text-sm font-semibold px-6 py-2.5 border border-[#CC3333] hover:bg-transparent hover:text-[#CC3333] transition-all duration-300 uppercase rounded-full tracking-wide shadow-sm">
                   Learn More
                 </span>
               </Link>

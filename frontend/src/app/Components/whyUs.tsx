@@ -40,7 +40,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section className="bg-white py-16 px-6 sm:px-12 lg:px-24">
+    <section className="bg-white py-10 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Image */}
         <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-lg">

@@ -40,30 +40,32 @@ export default function ServicesPage() {
             desc: "Professional, brand-aligned commercial interiors built for performance. Perfect for retail, offices, and more."
           },
           {
-            icon: <PlugZap className="text-[#CC3333] w-8 h-8 mb-4" />, title: "Electrical Services",
+            icon: <PlugZap className="text-[#4F46E5] w-8 h-8 mb-4" />, title: "Electrical Services",
             desc: "From lighting installations to full rewiring, our certified electricians deliver safe, efficient electrical solutions tailored to your property."
           },
           {
-            icon: <Droplets className="text-[#CC3333] w-8 h-8 mb-4" />, title: "Plumbing Services",
+            icon: <Droplets className="text-[#0EA5E9] w-8 h-8 mb-4" />, title: "Plumbing Services",
             desc: "Reliable plumbing for kitchens, bathrooms, and utility spaces. We handle repairs, installations, and emergency fixes with care."
           }
         ].map((service, index) => (
           <div
             key={index}
-            className="border-2 border-gray-200 hover:border-[#CC3333] rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 bg-white transform hover:-translate-y-1"
+            className="border-2 border-[#CC3333]  rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 bg-white transform hover:-translate-y-1 group"
           >
-            {service.icon}
-            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-            <p className="text-gray-600 mb-4">{service.desc}</p>
-            <Link href="/contact" className="text-[#CC3333] font-semibold hover:underline">Learn More</Link>
+            <div className="transition-transform duration-500 group-hover:scale-105">
+              {service.icon}
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-gray-600 mb-4">{service.desc}</p>
+              <Link href="/contact" className="text-[#CC3333] font-semibold hover:underline">Learn More</Link>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Request a Quote Section */}
-      <section className="mt-20 bg-gradient-to-r from-[#CC3333] to-[#b62d2d] py-12 px-6 rounded-3xl shadow-xl">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <Contact2 className="w-10 h-10 mx-auto mb-3" />
+      <section className="mt-16 bg-gradient-to-r from-[#CC3333] to-[#b62d2d] py-10 px-6 rounded-3xl shadow-xl">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <Contact2 className="w-10 h-10 mx-auto mb-3 animate-pulse" />
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Let&apos;s Bring Your Project to Life</h2>
           <p className="text-base md:text-lg mb-5">Contact <strong>JRS Building Company</strong> today for a personalised quote and expert advice. We&apos;re ready to build your vision.</p>
           <Link href="/contact" className="inline-block bg-white text-[#CC3333] font-semibold px-8 py-2 rounded-md hover:bg-gray-100 transition">
