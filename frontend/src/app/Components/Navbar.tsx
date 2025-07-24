@@ -293,7 +293,7 @@ export default function Navbar() {
           })}
 
           {/* Contact Info Mobile & Tablet */}
-          <div className="mt-8 w-full text-left text-base font-semibold">
+          <div className="mt-5 w-full text-left text-base font-semibold">
             <p className="text-sm text-[#CC3333] font-bold tracking-wide uppercase mb-3">
               Get an Instant Quote
             </p>
