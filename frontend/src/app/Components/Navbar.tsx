@@ -18,6 +18,7 @@ export default function Navbar() {
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
+  
 
   const handleMouseLeave = () => {
     closeTimeoutRef.current = setTimeout(() => {
@@ -217,7 +218,7 @@ export default function Navbar() {
       <div
   id="mobile-menu"
   className={`lg:hidden overflow-auto transition-all duration-500 bg-white border-t border-gray-300 ${
-    isMobileMenuOpen ? "max-h-[90vh] py-6" : "max-h-0 py-0"
+    isMobileMenuOpen ? "max-h-[80vh] py-6" : "max-h-0 py-0"
   }`}
 >
 
