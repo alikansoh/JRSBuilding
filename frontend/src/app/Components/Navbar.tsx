@@ -215,11 +215,12 @@ export default function Navbar() {
 
       {/* Mobile & Tablet Menu */}
       <div
-        id="mobile-menu"
-        className={`lg:hidden overflow-hidden transition-all duration-500 bg-white border-t border-gray-300 ${
-          isMobileMenuOpen ? "max-h-[700px] py-6" : "max-h-0 py-0"
-        }`}
-      >
+  id="mobile-menu"
+  className={`lg:hidden overflow-auto transition-all duration-500 bg-white border-t border-gray-300 ${
+    isMobileMenuOpen ? "max-h-[90vh] py-6" : "max-h-0 py-0"
+  }`}
+>
+
         <nav className="flex flex-col items-start space-y-4 px-6 font-semibold">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
