@@ -19,7 +19,9 @@ import {
   ArrowRight,
   Phone,
   Mail,
-  MapPin
+  MapPin,
+  Clock,
+  ClipboardCheck
 } from "lucide-react";
 
 const benefits = [
@@ -98,24 +100,28 @@ const processSteps = [
 
 const whyChooseUs = [
   {
-    icon: <Shield className="w-8 h-8" />,
-    title: "Fully Insured & Certified",
-    description: "Complete peace of mind with full public liability insurance and all necessary certifications for structural work."
+    icon: <Clock className="w-8 h-8" />,
+    title: "On-Time Delivery",
+    description: "We stick to agreed timelines to keep your project on track and stress-free."
   },
+  
   {
     icon: <Star className="w-8 h-8" />,
-    title: "25+ Years Experience",
+    title: "20+ Years Experience",
     description: "Decades of expertise in loft conversions across London, with hundreds of successful projects completed."
   },
   {
-    icon: <CheckCircle className="w-8 h-8" />,
-    title: "Building Regulations Approved",
-    description: "We handle all building control applications and ensure your conversion meets current safety and building standards."
+    icon: <ClipboardCheck className="w-8 h-8" />,
+    title: "Seamless Project Management",
+    description: "From planning to completion, we coordinate every stage to keep your project smooth and hassle-free."
   },
+  
   {
     icon: <Heart className="w-8 h-8" />,
     title: "Customer Satisfaction Guarantee",
-    description: "98% customer satisfaction rate with comprehensive aftercare and warranty on all structural work completed."
+    description: "98% customer satisfaction rate with comprehensive aftercare on all structural work completed."
+
+
   }
 ];
 
@@ -149,7 +155,7 @@ export default function LoftConversionPage() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </button>
               <button className="inline-flex items-center border-2 border-[#CC3333] text-[#CC3333] font-bold px-8 py-4 rounded-2xl hover:bg-[#CC3333] hover:text-white transition-all duration-300">
-                <span>View Gallery</span>
+                <span>View our Projects</span>
               </button>
             </div>
 
@@ -372,7 +378,7 @@ export default function LoftConversionPage() {
               <div className="flex flex-col sm:flex-row items-center gap-4 text-white/90">
                 <div className="flex items-center space-x-2">
                   <Mail className="w-5 h-5" />
-                  <span>info@jrsbuilding.co.uk</span>
+                  <span>info@jrs-building.co.uk</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-5 h-5" />

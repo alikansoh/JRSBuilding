@@ -16,7 +16,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Play,
-  Pause
+  Pause,
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -24,91 +24,100 @@ import { useState, useEffect } from "react";
 const renovationTypes = [
   {
     title: "Full Home Renovation",
-    description: "Complete renovation service to refresh and modernise your home from top to bottom.",
+    description:
+      "Complete renovation service to refresh and modernise your home from top to bottom.",
     features: [
       "General repairs and upgrades",
       "Interior layout improvements",
-      "Quality materials that fit your budget"
-    ]
+      "Quality materials that fit your budget",
+    ],
   },
   {
     title: "Old Home Refurbishment",
-    description: "Update and repair older properties while keeping their original charm where possible.",
+    description:
+      "Update and repair older properties while keeping their original charm where possible.",
     features: [
       "Repair or replace damaged areas",
       "Retain character features",
-      "Modern updates for everyday comfort"
-    ]
+      "Modern updates for everyday comfort",
+    ],
   },
   {
     title: "Open-Plan Living",
-    description: "Create more space by opening up your living areas and improving natural light flow.",
+    description:
+      "Create more space by opening up your living areas and improving natural light flow.",
     features: [
       "Safe wall removal",
       "Kitchen-living area integration",
-      "Brighter and more spacious feel"
-    ]
+      "Brighter and more spacious feel",
+    ],
   },
   {
     title: "Practical Home Improvements",
-    description: "Smaller upgrades that make a big difference to your daily living.",
+    description:
+      "Smaller upgrades that make a big difference to your daily living.",
     features: [
       "Bathroom or kitchen refresh",
       "Lighting and storage solutions",
-      "Flooring and wall finishes"
-    ]
-  }
+      "Flooring and wall finishes",
+    ],
+  },
 ];
 
 const processSteps = [
   {
     step: "01",
     title: "Initial Consultation",
-    description: "We visit your property to understand your vision and assess the current state"
+    description:
+      "We visit your property to understand your vision and assess the current state",
   },
   {
     step: "02",
     title: "Design & Planning",
-    description: "Our team creates detailed plans and 3D visualizations of your renovation"
+    description:
+      "We create clear plans to help you visualise your renovation before work begins",
   },
   {
     step: "03",
     title: "Permits & Approval",
-    description: "We handle all necessary permits and building regulation approvals"
+    description:
+      "We handle all necessary permits and building regulation approvals",
   },
   {
     step: "04",
     title: "Construction Phase",
-    description: "Skilled craftsmen bring your vision to life with daily progress updates"
+    description:
+      "Skilled craftsmen bring your vision to life with daily progress updates",
   },
   {
     step: "05",
     title: "Final Inspection",
-    description: "Quality checks and final walkthrough ensure everything meets our high standards"
-  }
+    description:
+      "Quality checks and final walkthrough ensure everything meets our high standards",
+  },
 ];
 
 const galleryImages = [
   {
-    src: "/renovations.jpeg",
+    src: "/kitchen-remod.jpeg",
     title: "Modern Kitchen Transformation",
-    description: "Complete kitchen renovation with island and premium finishes"
+    description: "Complete kitchen renovation with island and premium finishes",
   },
   {
     src: "/renovations2.jpeg",
     title: "Open Plan Living Space",
-    description: "Knocked through walls to create spacious living area"
+    description: "Knocked through walls to create spacious living area",
   },
   {
-    src: "/renovation3.jpeg",
+    src: "/bath-remod.jpeg",
     title: "Luxury Bathroom Suite",
-    description: "High-end bathroom renovation with marble tiles"
+    description: "High-end bathroom renovation with marble tiles",
   },
   {
     src: "/renovations4.jpeg",
     title: "Victorian House Restoration",
-    description: "Period property restored with modern amenities"
-  }
+    description: "Period property restored with modern amenities",
+  },
 ];
 
 export default function HomeRenovationsPage() {
@@ -119,9 +128,11 @@ export default function HomeRenovationsPage() {
   // Auto-play functionality
   useEffect(() => {
     if (!isPlaying) return;
-    
+
     const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+      setActiveSlide((prev) =>
+        prev === galleryImages.length - 1 ? 0 : prev + 1
+      );
     }, 4000);
 
     return () => clearInterval(interval);
@@ -134,12 +145,16 @@ export default function HomeRenovationsPage() {
 
   const nextSlide = () => {
     setDirection(1);
-    setActiveSlide((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+    setActiveSlide((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1
+    );
   };
 
   const prevSlide = () => {
     setDirection(-1);
-    setActiveSlide((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+    setActiveSlide((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
+    );
   };
 
   return (
@@ -150,7 +165,9 @@ export default function HomeRenovationsPage() {
           <div>
             <div className="inline-flex items-center space-x-2 bg-red-50 px-4 py-2 rounded-full mb-6">
               <Layers3 className="w-4 h-4 text-[#CC3333]" />
-              <span className="text-sm font-semibold text-[#CC3333] uppercase tracking-wide">Home Renovations</span>
+              <span className="text-sm font-semibold text-[#CC3333] uppercase tracking-wide">
+                Home Renovations
+              </span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
@@ -161,30 +178,31 @@ export default function HomeRenovationsPage() {
             </h1>
 
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Complete property transformations tailored to your vision, lifestyle, and needs. 
-              We handle every detail from planning to completion for a stunning result that exceeds expectations.
+              Complete property transformations tailored to your vision,
+              lifestyle, and needs. We handle every detail from planning to
+              completion for a stunning result that exceeds expectations.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Link 
+              <Link
                 href="/contact"
                 className="inline-flex items-center bg-[#CC3333] text-white font-bold px-8 py-4 rounded-2xl hover:bg-[#aa2828] transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <span>Get Free Quote</span>
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link 
+              <Link
                 href="/portfolio"
                 className="inline-flex items-center border-2 border-[#CC3333] text-[#CC3333] font-bold px-8 py-4 rounded-2xl hover:bg-[#CC3333] hover:text-white transition-all duration-300"
               >
-                <span>View Portfolio</span>
+                <span>View our Projects</span>
               </Link>
             </div>
 
             <div className="flex items-center space-x-6 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span>25+ Years Experience</span>
+                <span>20+ Years Experience</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Shield className="w-5 h-5 text-blue-500" />
@@ -198,20 +216,32 @@ export default function HomeRenovationsPage() {
             <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-black text-[#CC3333] mb-2">500+</div>
-                  <div className="text-sm text-gray-600">Projects Completed</div>
+                  <div className="text-3xl font-black text-[#CC3333] mb-2">
+                    100+
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Projects Completed
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-[#CC3333] mb-2">98%</div>
-                  <div className="text-sm text-gray-600">Client Satisfaction</div>
+                  <div className="text-3xl font-black text-[#CC3333] mb-2">
+                    98%
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Client Satisfaction
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-[#CC3333] mb-2">25+</div>
+                  <div className="text-3xl font-black text-[#CC3333] mb-2">
+                    20+
+                  </div>
                   <div className="text-sm text-gray-600">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-black text-[#CC3333] mb-2">12</div>
-                  <div className="text-sm text-gray-600">Month Warranty</div>
+                  <div className="text-3xl font-black text-[#B71C1C] mb-2">
+                    Top
+                  </div>
+                  <div className="text-sm text-gray-600">Quality Materials</div>
                 </div>
               </div>
             </div>
@@ -221,15 +251,21 @@ export default function HomeRenovationsPage() {
         {/* Renovation Types */}
         <section className="mb-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">Renovation Services</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Renovation Services
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From complete makeovers to specific upgrades, we offer comprehensive renovation solutions for every need and budget.
+              From complete makeovers to specific upgrades, we offer
+              comprehensive renovation solutions for every need and budget.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {renovationTypes.map((type, index) => (
-              <div key={index} className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 group hover:-translate-y-2">
+              <div
+                key={index}
+                className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 group hover:-translate-y-2"
+              >
                 <h3 className="text-2xl font-bold mb-4 text-[#1C1C3A] group-hover:text-[#CC3333] transition-colors duration-300">
                   {type.title}
                 </h3>
@@ -252,9 +288,12 @@ export default function HomeRenovationsPage() {
         {/* Process Section */}
         <section className="mb-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">Our Renovation Process</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Our Renovation Process
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A structured approach ensuring your renovation project runs smoothly from start to finish.
+              A structured approach ensuring your renovation project runs
+              smoothly from start to finish.
             </p>
           </div>
 
@@ -264,8 +303,12 @@ export default function HomeRenovationsPage() {
                 <div className="bg-gradient-to-r from-[#CC3333] to-[#aa2828] text-white w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-bold mx-auto mb-6 shadow-lg">
                   {step.step}
                 </div>
-                <h3 className="text-lg font-bold mb-3 text-[#1C1C3A]">{step.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
+                <h3 className="text-lg font-bold mb-3 text-[#1C1C3A]">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>
@@ -274,35 +317,45 @@ export default function HomeRenovationsPage() {
         {/* Enhanced Gallery Section */}
         <section className="mb-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">Project Gallery</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Project Gallery
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A glimpse into some of our recent home renovation transformations across London.
+              A glimpse into some of our recent home renovation transformations
+              across London.
             </p>
           </div>
 
-          <div className="relative max-w-3xl mx-auto px-4 sm:px-0">
+          <div className="relative max-w-2xl mx-auto px-4 sm:px-0">
             {/* Main Slider Container */}
             <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
               {/* Image Container */}
-              <div className="relative h-[500px] sm:h-[600px] md:h-[800px] overflow-hidden">
-                <div 
+              <div className="relative h-[350px] sm:h-[500px] md:h-[650px] lg:h-[700px] overflow-hidden">
+                <div
                   className="flex transition-all duration-700 ease-out h-full"
                   style={{ transform: `translateX(-${activeSlide * 100}%)` }}
                 >
                   {galleryImages.map((image, idx) => (
-                    <div key={idx} className="w-full flex-shrink-0 relative group">
-                      <img 
-                        src={image.src} 
+                    <div
+                      key={idx}
+                      className="w-full flex-shrink-0 relative group"
+                    >
+                      <img
+                        src={image.src}
                         alt={image.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       {/* Gradient Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                      
+
                       {/* Content Overlay - Always visible on mobile, hover on desktop */}
                       <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white transform translate-y-0 opacity-100 sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 transition-all duration-500">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{image.title}</h3>
-                        <p className="text-gray-200 text-sm sm:text-base md:text-lg">{image.description}</p>
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
+                          {image.title}
+                        </h3>
+                        <p className="text-gray-200 text-sm sm:text-base md:text-lg">
+                          {image.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -338,10 +391,12 @@ export default function HomeRenovationsPage() {
 
               {/* Progress Bar - Thicker on mobile */}
               <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1 bg-white/20">
-                <div 
+                <div
                   className="h-full bg-[#CC3333] transition-all duration-300 ease-out"
-                  style={{ 
-                    width: `${((activeSlide + 1) / galleryImages.length) * 100}%` 
+                  style={{
+                    width: `${
+                      ((activeSlide + 1) / galleryImages.length) * 100
+                    }%`,
                   }}
                 ></div>
               </div>
@@ -354,9 +409,9 @@ export default function HomeRenovationsPage() {
                   key={idx}
                   onClick={() => goToSlide(idx)}
                   className={`relative w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 ${
-                    idx === activeSlide 
-                      ? 'bg-[#CC3333] scale-125 shadow-lg' 
-                      : 'bg-gray-300 hover:bg-gray-400'
+                    idx === activeSlide
+                      ? "bg-[#CC3333] scale-125 shadow-lg"
+                      : "bg-gray-300 hover:bg-gray-400"
                   }`}
                 >
                   {idx === activeSlide && (
@@ -373,13 +428,13 @@ export default function HomeRenovationsPage() {
                   key={idx}
                   onClick={() => goToSlide(idx)}
                   className={`relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 ${
-                    idx === activeSlide 
-                      ? 'ring-2 sm:ring-4 ring-[#CC3333] ring-offset-1 sm:ring-offset-2 shadow-xl scale-105' 
-                      : 'hover:scale-105 hover:shadow-lg opacity-70 hover:opacity-100'
+                    idx === activeSlide
+                      ? "ring-2 sm:ring-4 ring-[#CC3333] ring-offset-1 sm:ring-offset-2 shadow-xl scale-105"
+                      : "hover:scale-105 hover:shadow-lg opacity-70 hover:opacity-100"
                   }`}
                 >
-                  <img 
-                    src={image.src} 
+                  <img
+                    src={image.src}
                     alt={image.title}
                     className="w-full h-full object-cover"
                   />
@@ -410,11 +465,12 @@ export default function HomeRenovationsPage() {
             </h2>
 
             <p className="text-xl mb-10 leading-relaxed opacity-90">
-              Contact JRS Building Company today for a free consultation and detailed quote for your home renovation project.
+              Contact JRS Building Company today for a free consultation and
+              detailed quote for your home renovation project.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link 
+              <Link
                 href="/contact"
                 className="inline-flex items-center bg-white text-[#CC3333] font-bold text-lg px-10 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
               >
@@ -425,7 +481,7 @@ export default function HomeRenovationsPage() {
               <div className="flex flex-col sm:flex-row items-center gap-4 text-white/90">
                 <div className="flex items-center space-x-2">
                   <Mail className="w-5 h-5" />
-                  <span>info@jrsbuilding.co.uk</span>
+                  <span>info@jrs-building.co.uk</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-5 h-5" />

@@ -43,7 +43,7 @@ export default function Navbar() {
       subItems: [
         { label: "Home Renovations", href: "/services/home-renovations" },
         { label: "Loft Conversions", href: "/services/loft-conversions" },
-        { label: "Bathroom Upgrades", href: "/services/Bathroom Upgrades" },
+        { label: "Bathroom Upgrades", href: "/services/bathroom-upgrades" },
         { label:"Commercial Fit-Outs", href: "/services/Commercial Fit-Outs" },
         { label:"Electrical Services", href: "/services/Electrical Services" },
         { label:"Plumbing Services", href: "/services/Plumbing Services" },
