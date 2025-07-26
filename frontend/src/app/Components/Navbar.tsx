@@ -45,7 +45,7 @@ export default function Navbar() {
         { label: "Loft Conversions", href: "/services/loft-conversions" },
         { label: "Bathroom Upgrades", href: "/services/bathroom-upgrades" },
         { label: "Kitchen Remodeling", href: "/services/kitchen-remodeling" },
-        { label: "Extensions and Additions", href: "/services/extension" },
+        { label: "Extensions and Additions", href: "/services/extensions" },
 
         { label:"Commercial Fit-Outs", href: "/services/Commercial-Fit-Outs" },
         { label:"Electrical Services", href: "/services/Electrical-services" },
