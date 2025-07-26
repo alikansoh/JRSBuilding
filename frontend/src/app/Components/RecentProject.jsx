@@ -193,19 +193,19 @@ export default function RecentProjects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {projects.map(({ title, before, after, description, address }, idx) => (
           <div
             key={`${title}-${idx}`}
             className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-500 flex flex-col overflow-hidden"
           >
-            <div className="relative rounded-t-3xl overflow-hidden w-full h-[400px] sm:h-[450px] md:h-[500px] bg-gray-100">
+            <div className="relative rounded-t-3xl overflow-hidden w-full h-[400px] sm:h-[320px] md:h-[380px] lg:h-[450px] xl:h-[500px] bg-gray-100">
               <CustomCompareSlider before={before} after={after} title={title} />
             </div>
 
-            <div className="p-6 flex-grow flex flex-col">
-              <h3 className="text-2xl font-semibold text-[#CC3333] mb-3">{title}</h3>
-              <p className="text-gray-600 text-base leading-relaxed mb-5">{description}</p>
+            <div className="p-4 md:p-6 flex-grow flex flex-col">
+              <h3 className="text-xl md:text-2xl font-semibold text-[#CC3333] mb-2 md:mb-3">{title}</h3>
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3 md:mb-5">{description}</p>
               <p className="text-sm text-[#CC3333] font-semibold tracking-wide">{address}</p>
             </div>
           </div>
@@ -213,32 +213,32 @@ export default function RecentProjects() {
       </div>
 
       {/* View All Button */}
-      <div className="text-center mt-10">
+      <div className="text-center mt-8 md:mt-10">
         <Link href="/projects" className="relative inline-block group">
           <span className="absolute inset-0 rounded-full bg-[#CC3333] blur opacity-70 group-hover:opacity-100 transition duration-300"></span>
-          <span className="relative inline-block px-12 py-3 text-white font-semibold text-lg rounded-full bg-[#b32b2b] group-hover:bg-[#cc4444] shadow-lg transition-colors duration-300 uppercase tracking-wide">
+          <span className="relative inline-block px-10 md:px-12 py-3 text-white font-semibold text-base md:text-lg rounded-full bg-[#b32b2b] group-hover:bg-[#cc4444] shadow-lg transition-colors duration-300 uppercase tracking-wide">
             View All Projects
           </span>
         </Link>
       </div>
 
       {/* Call to Action */}
-      <section className="relative mt-16 bg-gradient-to-r from-[#cc3333] to-[#a52a2a] py-16 px-6 sm:px-12 lg:px-24 rounded-3xl shadow-2xl overflow-hidden">
+      <section className="relative mt-12 md:mt-16 bg-gradient-to-r from-[#cc3333] to-[#a52a2a] py-12 md:py-16 px-6 sm:px-12 lg:px-24 rounded-3xl shadow-2xl overflow-hidden">
         {/* Decorative Blur Circles */}
         <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-white opacity-10 rounded-full blur-3xl z-0" />
         <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-white opacity-10 rounded-full blur-2xl z-0" />
 
         <div className="relative z-10 text-center max-w-3xl mx-auto">
-          <h2 className="text-white text-4xl sm:text-5xl font-extrabold mb-6 leading-tight drop-shadow-md">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-6 leading-tight drop-shadow-md">
             Let's Bring Your Vision to Life
           </h2>
-          <p className="text-white/90 text-lg sm:text-xl mb-10 leading-relaxed">
+          <p className="text-white/90 text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed">
             Whether it's a full renovation or a small improvement, we're here to deliver stunning results. Reach out today and let's talk about your next project.
           </p>
 
           <Link
             href="/contact"
-            className="relative inline-block px-10 py-4 text-white font-semibold text-lg bg-white/10 border border-white/20 rounded-full backdrop-blur hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-xl"
+            className="relative inline-block px-8 md:px-10 py-3 md:py-4 text-white font-semibold text-base md:text-lg bg-white/10 border border-white/20 rounded-full backdrop-blur hover:bg-white/20 transition-all duration-300 shadow-md hover:shadow-xl"
           >
             Get a Free quote
           </Link>

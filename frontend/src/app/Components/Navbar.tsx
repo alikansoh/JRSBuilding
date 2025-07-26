@@ -44,17 +44,12 @@ export default function Navbar() {
         { label: "Home Renovations", href: "/services/home-renovations" },
         { label: "Loft Conversions", href: "/services/loft-conversions" },
         { label: "Bathroom Upgrades", href: "/services/bathroom-upgrades" },
-        { label:"Commercial Fit-Outs", href: "/services/Commercial Fit-Outs" },
-        { label:"Electrical Services", href: "/services/Electrical Services" },
-        { label:"Plumbing Services", href: "/services/Plumbing Services" },
+        { label: "Kitchen Remodeling", href: "/services/kitchen-remodeling" },
+        { label: "Extensions and Additions", href: "/services/extension" },
 
-
-
-      
-
-
-
-
+        { label:"Commercial Fit-Outs", href: "/services/Commercial-Fit-Outs" },
+        { label:"Electrical Services", href: "/services/Electrical-services" },
+        { label:"Plumbing Services", href: "/services/Plumbing-services" },
       ],
     },
     { label: "Projects", href: "/projects" },
@@ -85,6 +80,8 @@ export default function Navbar() {
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             const isServices = item.label === "Services";
+            // Check if current path is any services page
+            const isServicesActive = pathname.startsWith('/services');
 
             if (isServices) {
               return (
@@ -100,14 +97,14 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     className={`group relative px-4 py-3 flex items-center text-[#1C1C3A] transition-colors duration-300 font-semibold ${
-                      isActive ? "text-[#CC3333]" : "hover:text-gradient"
+                      isServicesActive ? "text-[#CC3333]" : "hover:text-gradient"
                     }`}
                   >
                     <span className="relative flex items-center">
                       {item.label}
                       <span
                         className={`absolute left-0 -bottom-1.5 h-[3px] rounded-full bg-gradient-to-r from-[#CC3333] to-[#FF6F61] transition-all duration-500 ${
-                          isActive ? "w-full" : "w-0 group-hover:w-full"
+                          isServicesActive ? "w-full" : "w-0 group-hover:w-full"
                         }`}
                       ></span>
                       <FiChevronDown
@@ -129,15 +126,22 @@ export default function Navbar() {
                         : "opacity-0 invisible -translate-y-2"}`}
                   >
                     <div className="py-3">
-                      {item.subItems?.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          href={sub.href}
-                          className="block px-5 py-2 text-[#1C1C3A] text-[15px] font-medium rounded-md hover:bg-gradient-to-r hover:from-[#CC3333] hover:to-[#FF6F61] hover:text-white transition-colors"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
+                      {item.subItems?.map((sub) => {
+                        const isSubActive = pathname === sub.href;
+                        return (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            className={`block px-5 py-2 text-[15px] font-medium rounded-md transition-colors ${
+                              isSubActive 
+                                ? "bg-gradient-to-r from-[#CC3333] to-[#FF6F61] text-white" 
+                                : "text-[#1C1C3A] hover:bg-gradient-to-r hover:from-[#CC3333] hover:to-[#FF6F61] hover:text-white"
+                            }`}
+                          >
+                            {sub.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -215,27 +219,31 @@ export default function Navbar() {
 
       {/* Mobile & Tablet Menu */}
       <div
-  id="mobile-menu"
-  className={`lg:hidden overflow-auto transition-all duration-500 bg-white border-t border-gray-300 ${
-    isMobileMenuOpen ? "max-h-[80vh] py-6" : "max-h-0 py-0"
-  }`}
->
-
+        id="mobile-menu"
+        className={`lg:hidden overflow-auto transition-all duration-500 bg-white border-t border-gray-300 ${
+          isMobileMenuOpen ? "max-h-[80vh] py-6" : "max-h-0 py-0"
+        }`}
+      >
         <nav className="flex flex-col items-start space-y-4 px-6 font-semibold">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             const isServices = item.label === "Services";
+            const isServicesActive = pathname.startsWith('/services');
 
             if (isServices) {
               return (
                 <div key={item.href} className="w-full">
                   <button
-                    className="w-full text-lg text-[#1C1C3A] text-left px-4 py-2 flex justify-between items-center font-semibold hover:text-[#CC3333] transition-colors duration-300"
+                    className={`w-full text-lg text-left px-4 py-2 flex justify-between items-center font-semibold transition-colors duration-300 ${
+                      isServicesActive ? "text-[#CC3333]" : "text-[#1C1C3A] hover:text-[#CC3333]"
+                    }`}
                     onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                     aria-expanded={isMobileServicesOpen}
                     aria-controls="mobile-services-submenu"
                   >
-                    {item.label}
+                    <span className={isServicesActive ? "underline underline-offset-6" : ""}>
+                      {item.label}
+                    </span>
                     <FiChevronDown
                       size={28}
                       className={`ml-2 transition-transform duration-300 ${
@@ -254,21 +262,32 @@ export default function Navbar() {
                       <Link
                         href="/services"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-base text-[#1C1C3A] px-6 py-2 font-semibold rounded hover:bg-gradient-to-r hover:from-[#CC3333] hover:to-[#FF6F61] hover:text-white transition-colors"
+                        className={`block text-base px-6 py-2 font-semibold rounded transition-colors ${
+                          pathname === "/services"
+                            ? "bg-gradient-to-r from-[#CC3333] to-[#FF6F61] text-white"
+                            : "text-[#1C1C3A] hover:bg-gradient-to-r hover:from-[#CC3333] hover:to-[#FF6F61] hover:text-white"
+                        }`}
                       >
                         All Services
                       </Link>
 
-                      {item.subItems?.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          href={sub.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block text-base text-[#1C1C3A] px-6 py-2 rounded hover:bg-gradient-to-r hover:from-[#CC3333] hover:to-[#FF6F61] hover:text-white transition-colors"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
+                      {item.subItems?.map((sub) => {
+                        const isSubActive = pathname === sub.href;
+                        return (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className={`block text-base px-6 py-2 rounded transition-colors ${
+                              isSubActive
+                                ? "bg-gradient-to-r from-[#CC3333] to-[#FF6F61] text-white"
+                                : "text-[#1C1C3A] hover:bg-gradient-to-r hover:from-[#CC3333] hover:to-[#FF6F61] hover:text-white"
+                            }`}
+                          >
+                            {sub.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

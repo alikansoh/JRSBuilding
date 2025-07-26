@@ -32,13 +32,13 @@ const services = [
     title: "Extensions & Additions",
     image: "/extension.jpeg",
     description: "Add value and space to your home seamlessly.",
-    link: "/services/extensions-additions",
+    link: "/services/extensions",
   },
   {
     title: "Commercial Fit-Outs",
     image: "/com.jpeg",
     description: "Professional, brand-aligned spaces for your business.",
-    link: "/services/commercial-fit-outs",
+    link: "/services/Commercial-Fit-Outs",
   },
 ];
 
