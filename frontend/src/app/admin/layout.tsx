@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import { 
   BarChart3, 
   FolderPlus, 
@@ -12,7 +12,11 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const DashboardLayout = ({ children }) => {
+interface DashboardLayoutProps {
+  children: ReactNode;
+}
+
+const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
 
