@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Components/RecentProject.jsx", "src/app/services/home-renovations/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Components/RecentProject.jsx", "src/app/services/home-renovations/page.tsx", "src/app/admin/projects/new/page.jsx", "src/app/admin/page.jsx", "src/app/admin/projects/page.tsx", "src/app/projects/page.tsx"],
   "exclude": ["node_modules"]
 }

@@ -5,24 +5,24 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "Kitchen Renovation",
+    title: "Bathroom  Upgrades",
     before: "/bath-before.jpeg",
     after: "/bath-after.jpeg",
-    description: "Modern kitchen makeover with sleek cabinetry and new countertops.",
+    description: "Contemporary bathroom upgrade featuring stylish fittings, modern tiling, and a fresh, clean design.",
     address: "Ealing, London",
   },
   {
-    title: "Loft Extension",
+    title: " Staircase Renovation",
     before: "/stair-after.jpeg",
     after: "/stair1-after.jpeg",
-    description: "Expanded living space with a bright and airy loft extension.",
+    description: "Update old stairs with modern materials and a fresh, stylish look for improved safety and interior appeal.",
     address: "Fulham, London",
   },
   {
-    title: "Garden Makeover",
+    title: "Full Kitchen Transformation",
     before: "before.jpeg",
     after: "/after.jpeg",
-    description: "Transformed outdoor space into a relaxing garden oasis.",
+    description:"We redesigned the entire kitchen, changing the layout and updating the style. The result is a modern, practical space tailored to everyday living.",
     address: "London, UK",
   },
 ];

@@ -6,7 +6,7 @@ import Link from "next/link";
 const services = [
   {
     title: "Home Renovations",
-    image: "/renovation.jpeg",
+    image: "/reno.jpeg",
     description: "Complete property transformations tailored to your vision.",
     link: "/services/home-renovations",
   },
@@ -24,7 +24,7 @@ const services = [
   },
   {
     title: "Bathroom Upgrades",
-    image: "/bath-services.jpeg",
+    image: "/bath-ser.jpeg",
     description: "Beautiful bathrooms that combine comfort and elegance.",
     link: "/services/bathroom-upgrades",
   },
