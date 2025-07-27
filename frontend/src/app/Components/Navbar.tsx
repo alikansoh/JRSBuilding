@@ -12,7 +12,7 @@ export default function Navbar() {
   const [isDropdownHovered, setIsDropdownHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
 
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
