@@ -3,6 +3,7 @@
 import { useEffect, useState, FormEvent, ChangeEvent } from "react";
 import { Edit, Trash2, PlusCircle, X, ChevronLeft, ChevronRight, Calendar, MapPin, Image as ImageIcon, Upload, Eye, Sparkles } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type Project = {
   _id?: string;
@@ -128,6 +129,8 @@ const SuccessToast = ({ message, onClose }: { message: string; onClose: () => vo
 };
 
 export default function ProjectsAdminPage() {
+  const router = useRouter();
+
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -146,6 +149,14 @@ export default function ProjectsAdminPage() {
   const [formImages, setFormImages] = useState<string[]>([]); // base64 strings for preview
   const [imageFiles, setImageFiles] = useState<File[]>([]); // raw files for upload
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, [router]);
   const fetchProjects = async () => {
     try {
       setLoading(true);

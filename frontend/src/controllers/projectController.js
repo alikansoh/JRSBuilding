@@ -2,7 +2,7 @@ import Project from '@/models/Project';
 import mongoose from 'mongoose';
 import formidable from 'formidable';
 import cloudinary from '@/lib/cloudinary';
-import dbConnect from '@/lib/dbConnect'; // تأكد من المسار الصحيح
+import dbConnect from '@/lib/dbConnect'; 
 
 
 export const config = {

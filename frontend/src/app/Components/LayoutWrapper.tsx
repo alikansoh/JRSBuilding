@@ -7,7 +7,7 @@ import Footer from "./Footer";
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname() ?? ''; // Fixes the TS warning
 
-  const isAdminRoute = pathname.startsWith("/admin");
+  const isAdminRoute = pathname.startsWith("/admin")||pathname.startsWith("/login") ;
 
   if (isAdminRoute) {
     return <>{children}</>; // No navbar/footer on admin pages
