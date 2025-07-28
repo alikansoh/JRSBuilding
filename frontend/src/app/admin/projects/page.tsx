@@ -558,7 +558,7 @@ export default function ProjectsAdminPage() {
             onClick={closeForm}
           >
             <div
-              className="bg-white/95 backdrop-blur-xl top-10 lg:left-40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 w-full max-w-4xl relative overflow-auto max-h-[95vh] sm:max-h-[90vh] shadow-2xl border border-white/20"
+              className="bg-white/95 backdrop-blur-xl top-20 lg:left-40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 w-full max-w-4xl relative overflow-auto max-h-[95vh] sm:max-h-[90vh] shadow-2xl border border-white/20"
               onClick={(e) => e.stopPropagation()}
             >
               <button

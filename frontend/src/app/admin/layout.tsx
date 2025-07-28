@@ -114,9 +114,13 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ children }) => {
           <button
             type="button"
             className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
-            onClick={() => setSidebarOpen(true)}
+            onClick={() => setSidebarOpen(!sidebarOpen)}
           >
-            <Menu className="h-6 w-6" />
+            {sidebarOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
           <div className="h-6 w-px bg-gray-200" />
           <h1 className="text-xl font-semibold text-gray-900">Admin Dashboard</h1>
