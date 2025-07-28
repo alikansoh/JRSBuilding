@@ -1,125 +1,109 @@
-"use client"
-import React, { useState, ReactNode } from 'react';
-import { 
-  BarChart3, 
-  FolderPlus, 
-  Users, 
-  Calendar, 
-  Menu,
-  User,
-  X,
-} from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+"use client";
 
-interface DashboardLayoutProps {
+import React, { useState, ReactNode } from "react";
+import { Users, Calendar, Folder, Menu, X } from "lucide-react";
+
+interface AdminSidebarProps {
   children: ReactNode;
 }
 
-const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
+const AdminSidebar: React.FC<AdminSidebarProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const pathname = usePathname();
 
-  const navigationLinks = [
-    { id: 'projects', label: 'Projects', icon: FolderPlus, href: '/admin/projects' },
-    { id: 'users', label: 'Users', icon: Users, href: '/admin/users' },
-    { id: 'bookings', label: 'Bookings', icon: Calendar, href: '/admin/bookings' },
+  const navigationItems = [
+    { name: "Projects", href: "/admin/projects", icon: Folder },
+    { name: "Users", href: "/admin/users", icon: Users },
+    { name: "Bookings", href: "/admin/bookings", icon: Calendar },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex">
-      {/* Mobile Sidebar Overlay */}
+    <div className="min-h-screen bg-gray-100">
+      {/* Mobile Sidebar */}
       {sidebarOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div
+            className="fixed inset-0 bg-gray-600 bg-opacity-75"
+            onClick={() => setSidebarOpen(false)}
+          />
+          <div className="relative flex w-full max-w-xs flex-col bg-white">
+            <div className="absolute top-0 right-0 -mr-12 pt-2">
+              <button
+                type="button"
+                className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                onClick={() => setSidebarOpen(false)}
+              >
+                <X className="h-6 w-6 text-white" />
+              </button>
+            </div>
+            <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4">
+              <div className="flex items-center px-4">
+                <h2 className="text-xl font-bold text-gray-900">Admin Dashboard</h2>
+              </div>
+              <nav className="mt-5 space-y-1 px-2">
+                {navigationItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="group flex items-center px-2 py-2 text-base font-medium rounded-md text-gray-600 hover:bg-red-50 hover:text-red-600"
+                  >
+                    <item.icon className="mr-4 h-6 w-6 text-gray-400 group-hover:text-red-600" />
+                    {item.name}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
+        </div>
       )}
 
-      {/* Sidebar */}
-      <aside className={`fixed left-0 top-0 h-full w-64 bg-gray-800/95 backdrop-blur-xl border-r border-gray-700/50 transform transition-all duration-300 ease-in-out z-50 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } lg:translate-x-0 lg:static lg:z-auto`}>
-        
-        {/* Logo Section */}
-        <div className="p-6 border-b border-gray-700/50 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg">
-              <BarChart3 className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-white">Admin Panel</h1>
-              <p className="text-xs text-gray-400">Management System</p>
-            </div>
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4 border-r border-gray-200">
+          <div className="flex h-16 shrink-0 items-center">
+            <h2 className="text-2xl font-bold text-gray-900">Admin Dashboard</h2>
           </div>
-          {/* Close button for mobile */}
+          <nav className="flex flex-1 flex-col">
+            <ul role="list" className="flex flex-1 flex-col gap-y-7">
+              <li>
+                <ul role="list" className="-mx-2 space-y-1">
+                  {navigationItems.map((item) => (
+                    <li key={item.name}>
+                      <a
+                        href={item.href}
+                        className="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:text-red-600 hover:bg-red-50"
+                      >
+                        <item.icon className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-red-600" />
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="lg:pl-72">
+        {/* Mobile Header */}
+        <div className="sticky top-0 z-40 flex h-16 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 lg:hidden">
           <button
-            onClick={() => setSidebarOpen(false)}
-            className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+            type="button"
+            className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+            onClick={() => setSidebarOpen(true)}
           >
-            <X className="w-5 h-5" />
+            <Menu className="h-6 w-6" />
           </button>
+          <div className="h-6 w-px bg-gray-200" />
+          <h1 className="text-xl font-semibold text-gray-900">Admin Dashboard</h1>
         </div>
 
-        {/* Navigation Links */}
-        <nav className="p-4 flex-1 overflow-y-auto">
-          <div className="space-y-2">
-            {navigationLinks.map((item) => {
-              const Icon = item.icon;
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  onClick={() => setSidebarOpen(false)} // Close sidebar on mobile
-                  className={`group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 ${
-                    isActive
-                      ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-500/25'
-                      : 'text-gray-300 hover:bg-gray-700/50 hover:text-white'
-                  }`}
-                >
-                  <Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${
-                    isActive ? 'text-white' : 'text-gray-400'
-                  }`} />
-                  <span className="font-medium">{item.label}</span>
-
-                  {/* Active indicator */}
-                  {isActive && (
-                    <div className="ml-auto w-2 h-2 bg-white rounded-full animate-pulse" />
-                  )}
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* User Profile Section */}
-          <div className="mt-8 pt-6 border-t border-gray-700/50">
-            <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-700/30 border border-gray-600/30">
-              <div className="w-8 h-8 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center">
-                <User className="w-4 h-4 text-white" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-white">Admin User</p>
-                <p className="text-xs text-gray-400 truncate">admin@company.com</p>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </aside>
-
-      {/* Main Content Area */}
-      <main className="flex-1 lg:ml-64 p-6 sm:p-8 overflow-auto">
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="lg:hidden mb-4 p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-700 transition-colors"
-        >
-          <Menu className="w-6 h-6" />
-        </button>
-        {children}
-      </main>
+        {/* Page Content */}
+        <main>{children}</main>
+      </div>
     </div>
   );
 };
 
-export default DashboardLayout;
+export default AdminSidebar;

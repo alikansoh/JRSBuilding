@@ -12,8 +12,6 @@ import {
   Users,
   Clock,
   Building,
-  Home,
-  Wrench,
   ArrowRight,
   CheckCircle,
   Globe,
@@ -45,9 +43,9 @@ type ApiResponse = {
 
 // Stats data
 const stats = [
-  { icon: Building, label: "Projects Completed", value: "150+", color: "text-blue-600" },
+  { icon: Building, label: "Projects Completed", value: "100+", color: "text-blue-600" },
   { icon: Users, label: "Happy Clients", value: "98%", color: "text-green-600" },
-  { icon: Award, label: "Years Experience", value: "25+", color: "text-purple-600" },
+  { icon: Award, label: "Years Experience", value: "20+", color: "text-purple-600" },
   { icon: Globe, label: "Locations Served", value: "50+", color: "text-orange-600" },
 ];
 
@@ -56,8 +54,8 @@ const HeroStats = () => (
   <div className="bg-gradient-to-r from-[#CC3333] to-[#AA2828] text-white py-16">
     <div className="max-w-6xl mx-auto px-4">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Building Excellence Since 1999</h2>
-        <p className="text-xl opacity-90 max-w-2xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Trusted Building Partner</h2>
+      <p className="text-xl opacity-90 max-w-2xl mx-auto">
           We&apos;ve been transforming spaces and exceeding expectations for over two decades
         </p>
       </div>
@@ -113,14 +111,14 @@ const ProjectImageSlider = ({ images, title }: { images: string[]; title: string
         <>
           <button
             onClick={prevImage}
-            className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-100 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
             aria-label="Previous image"
           >
             <ChevronLeft size={18} />
           </button>
           <button
             onClick={nextImage}
-            className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-100 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
             aria-label="Next image"
           >
             <ChevronRight size={18} />
@@ -334,7 +332,7 @@ export default function ProjectsPage() {
       setError(null);
       
       // Replace with your actual API endpoint
-      const response = await fetch('/api/projects'); // Update this URL to your actual API endpoint
+      const response = await fetch('/api/projects'); 
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
