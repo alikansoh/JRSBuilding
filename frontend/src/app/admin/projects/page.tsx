@@ -160,8 +160,14 @@ export default function ProjectsAdminPage() {
   const fetchProjects = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/projects');
-      
+      const token = localStorage.getItem("token");
+
+      const response = await fetch('/api/projects', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+            
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -308,9 +314,14 @@ export default function ProjectsAdminPage() {
         : "/api/projects";
       const method = editingProject ? "PUT" : "POST";
 
+      const token = localStorage.getItem("token");
+
       const response = await fetch(url, {
         method,
         body: formData,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (!response.ok) {
@@ -347,9 +358,15 @@ export default function ProjectsAdminPage() {
       return;
 
     try {
+      const token = localStorage.getItem("token");
+
       const response = await fetch(`/api/projects/${id}`, {
         method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
+      
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));

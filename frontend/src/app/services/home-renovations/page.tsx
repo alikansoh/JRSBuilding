@@ -192,7 +192,7 @@ export default function HomeRenovationsPage() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
-                href="/portfolio"
+                href="/projects"
                 className="inline-flex items-center border-2 border-[#CC3333] text-[#CC3333] font-bold px-8 py-4 rounded-2xl hover:bg-[#CC3333] hover:text-white transition-all duration-300"
               >
                 <span>View our Projects</span>

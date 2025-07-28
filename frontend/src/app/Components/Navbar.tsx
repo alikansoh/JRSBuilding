@@ -184,11 +184,11 @@ export default function Navbar() {
             <span>info@jrs-building.co.uk</span>
           </a>
           <a
-            href="tel:+447123456789"
+            href="tel:+447494287777"
             className="flex items-center gap-2 hover:underline text-[#1C1C3A] font-medium"
           >
             <FiPhone className="w-5 h-5 text-[#CC3333] transition-transform duration-300 hover:rotate-[15deg]" />
-            <span>+44 7123 456789</span>
+            <span>+44 7494 287777</span>
           </a>
         </div>
 
@@ -325,11 +325,11 @@ export default function Navbar() {
             </a>
 
             <a
-              href="tel:+447123456789"
+              href="tel:+447494287777"
               className="flex items-center gap-3 text-[#1C1C3A] hover:underline"
             >
               <FiPhone className="w-6 h-6 text-[#CC3333]" />
-              <span>+44 7123 456789</span>
+              <span>++44 7494 287777</span>
             </a>
           </div>
         </nav>

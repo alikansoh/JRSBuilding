@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   ChefHat,
   Home,
@@ -145,11 +146,14 @@ export default function KitchenRemodelingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button className="inline-flex items-center bg-[#CC3333] text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-[#aa2828] transition-all duration-300 shadow-xl">
-                <Phone className="w-6 h-6 mr-3" />
-                <span>Start Your Kitchen Project</span>
-                <ArrowRight className="w-6 h-6 ml-3" />
-              </button>
+            <Link
+      href="/contact"
+      className="inline-flex items-center bg-[#CC3333] text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-[#aa2828] transition-all duration-300 shadow-xl cursor-pointer"
+    >
+      <Phone className="w-6 h-6 mr-3" />
+      <span>Start Your Kitchen Project</span>
+      <ArrowRight className="w-6 h-6 ml-3" />
+    </Link>
             </div>
           </div>
         </div>
@@ -468,10 +472,13 @@ export default function KitchenRemodelingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
-            <button className="inline-flex items-center bg-white text-[#CC3333] font-bold text-lg px-10 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 shadow-xl">
-              <Phone className="w-5 h-5 mr-3" />
-              <span>Start Your Kitchen Project</span>
-            </button>
+          <Link
+      href="/contact"
+      className="inline-flex items-center bg-white text-[#CC3333] font-bold text-lg px-10 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 shadow-xl cursor-pointer"
+    >
+      <Phone className="w-5 h-5 mr-3" />
+      <span>Start Your Kitchen Project</span>
+    </Link>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-white/90">

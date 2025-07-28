@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   Calendar,
   MapPin,
@@ -43,10 +44,30 @@ type ApiResponse = {
 
 // Stats data
 const stats = [
-  { icon: Building, label: "Projects Completed", value: "100+", color: "text-blue-600" },
-  { icon: Users, label: "Happy Clients", value: "98%", color: "text-green-600" },
-  { icon: Award, label: "Years Experience", value: "20+", color: "text-purple-600" },
-  { icon: Globe, label: "Locations Served", value: "50+", color: "text-orange-600" },
+  {
+    icon: Building,
+    label: "Projects Completed",
+    value: "100+",
+    color: "text-blue-600",
+  },
+  {
+    icon: Users,
+    label: "Happy Clients",
+    value: "98%",
+    color: "text-green-600",
+  },
+  {
+    icon: Award,
+    label: "Years Experience",
+    value: "20+",
+    color: "text-purple-600",
+  },
+  {
+    icon: Globe,
+    label: "Locations Served",
+    value: "50+",
+    color: "text-orange-600",
+  },
 ];
 
 // Hero Stats Component
@@ -54,9 +75,12 @@ const HeroStats = () => (
   <div className="bg-gradient-to-r from-[#CC3333] to-[#AA2828] text-white py-16">
     <div className="max-w-6xl mx-auto px-4">
       <div className="text-center mb-12">
-<h2 className="text-3xl md:text-4xl font-bold mb-4">Your Trusted Building Partner</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Your Trusted Building Partner
+        </h2>
         <p className="text-xl opacity-90 max-w-2xl mx-auto">
-          We&apos;ve been transforming spaces and exceeding expectations for over two decades
+          We&apos;ve been transforming spaces and exceeding expectations for
+          over two decades
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -66,8 +90,12 @@ const HeroStats = () => (
             <div key={index} className="text-center">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
                 <Icon className="w-8 h-8 mx-auto mb-4 text-white" />
-                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-sm md:text-base opacity-90">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm md:text-base opacity-90">
+                  {stat.label}
+                </div>
               </div>
             </div>
           );
@@ -78,12 +106,19 @@ const HeroStats = () => (
 );
 
 // Project image slider component
-const ProjectImageSlider = ({ images, title }: { images: string[]; title: string }) => {
+const ProjectImageSlider = ({
+  images,
+  title,
+}: {
+  images: string[];
+  title: string;
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const nextImage = () => setCurrentIndex((prev) => (prev + 1) % images.length);
-  const prevImage = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  const prevImage = () =>
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   if (!images || images.length === 0) {
     return (
@@ -147,28 +182,39 @@ const ProjectImageSlider = ({ images, title }: { images: string[]; title: string
 };
 
 // Enhanced Project Modal
-const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => void }) => {
+const ProjectModal = ({
+  project,
+  onClose,
+}: {
+  project: Project;
+  onClose: () => void;
+}) => {
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl relative overflow-hidden max-h-[95vh] flex flex-col">
         <div className="flex justify-between items-center p-6 border-b bg-gradient-to-r from-[#CC3333] to-[#AA2828] text-white">
           <h2 className="text-2xl md:text-3xl font-bold">{project.title}</h2>
-          <button 
-            onClick={onClose} 
+          <button
+            onClick={onClose}
             className="p-2 hover:bg-white/20 rounded-full transition-colors"
           >
             <X className="w-6 h-6" />
           </button>
         </div>
-        
+
         <div className="flex-1 overflow-y-auto">
           <div className="grid md:grid-cols-2 gap-8 p-6">
             <div>
-              <ProjectImageSlider images={project.images} title={project.title} />
+              <ProjectImageSlider
+                images={project.images}
+                title={project.title}
+              />
             </div>
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-[#CC3333]">Project Details</h3>
+                <h3 className="text-xl font-semibold mb-3 text-[#CC3333]">
+                  Project Details
+                </h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-[#CC3333]" />
@@ -192,15 +238,21 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
                   {project.status && (
                     <div className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-green-600" />
-                      <span className="text-gray-700 capitalize">{project.status}</span>
+                      <span className="text-gray-700 capitalize">
+                        {project.status}
+                      </span>
                     </div>
                   )}
                 </div>
               </div>
-              
+
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-[#CC3333]">Description</h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{project.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-[#CC3333]">
+                  Description
+                </h3>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {project.description}
+                </p>
               </div>
             </div>
           </div>
@@ -211,7 +263,13 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
 };
 
 // Enhanced Project Card
-const ProjectCard = ({ project, onPreview }: { project: Project; onPreview: () => void }) => {
+const ProjectCard = ({
+  project,
+  onPreview,
+}: {
+  project: Project;
+  onPreview: () => void;
+}) => {
   const [showFullDesc, setShowFullDesc] = useState(false);
   const toggleDescription = () => setShowFullDesc(!showFullDesc);
 
@@ -245,7 +303,7 @@ const ProjectCard = ({ project, onPreview }: { project: Project; onPreview: () =
                 </button>
               )}
             </p>
-            
+
             {/* Project metadata */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
               <div className="flex items-center gap-2 text-gray-600">
@@ -276,14 +334,17 @@ const ProjectCard = ({ project, onPreview }: { project: Project; onPreview: () =
               )}
             </div>
           </div>
-          
+
           <button
             onClick={onPreview}
             className="bg-[#CC3333] text-white px-6 py-3 rounded-xl hover:bg-[#AA2828] transition-all duration-200 font-medium flex items-center gap-2 w-max group"
           >
             <Eye size={18} />
             View Project Details
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </button>
         </div>
       </div>
@@ -299,18 +360,24 @@ const CallToAction = () => (
         Ready to Start Your Next Project?
       </h2>
       <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-        Get in touch with our expert team for a free consultation and quote. 
+        Get in touch with our expert team for a free consultation and quote.
         Let&apos;s bring your vision to life.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <button className="bg-[#CC3333] text-white px-8 py-4 rounded-xl hover:bg-[#AA2828] transition-all duration-200 font-semibold flex items-center gap-2 justify-center group">
+        <a
+          href="tel:+447494287777"
+          className="bg-[#CC3333] text-white px-8 py-4 rounded-xl hover:bg-[#AA2828] transition-all duration-200 font-semibold flex items-center gap-2 justify-center group"
+        >
           <Phone size={20} />
-          Call Now: 01234 567890
-        </button>
-        <button className="border-2 border-[#CC3333] text-[#CC3333] px-8 py-4 rounded-xl hover:bg-[#CC3333] hover:text-white transition-all duration-200 font-semibold flex items-center gap-2 justify-center">
+          Call Now: +44 7494 287777
+        </a>
+        <Link
+          href="/contact"
+          className="border-2 border-[#CC3333] text-[#CC3333] px-8 py-4 rounded-xl hover:bg-[#CC3333] hover:text-white transition-all duration-200 font-semibold flex items-center gap-2 justify-center"
+        >
           <Mail size={20} />
           Get Free Quote
-        </button>
+        </Link>
       </div>
     </div>
   </div>
@@ -330,24 +397,28 @@ export default function ProjectsPage() {
     try {
       setLoading(true);
       setError(null);
-      
+
       // Replace with your actual API endpoint
-      const response = await fetch('/api/projects'); 
-      
+      const response = await fetch("/api/projects");
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const data: ApiResponse = await response.json();
-      
+
       if (data.success && data.data) {
         setProjects(data.data);
       } else {
-        throw new Error('Invalid API response format');
+        throw new Error("Invalid API response format");
       }
     } catch (err) {
-      console.error('Error fetching projects:', err);
-      setError(err instanceof Error ? err.message : "Failed to load projects. Please try again later.");
+      console.error("Error fetching projects:", err);
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to load projects. Please try again later."
+      );
     } finally {
       setLoading(false);
     }
@@ -358,11 +429,13 @@ export default function ProjectsPage() {
   }, []);
 
   // Filter projects based on category and search term
-  const filteredProjects = projects.filter(project => {
-    const matchesCategory = selectedCategory === "all" || project.category === selectedCategory;
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredProjects = projects.filter((project) => {
+    const matchesCategory =
+      selectedCategory === "all" || project.category === selectedCategory;
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -390,23 +463,29 @@ export default function ProjectsPage() {
       <section className=" max-w-6xl mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Our Project Portfolio</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            Our Project Portfolio
+          </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover our extensive portfolio of construction projects. From residential extensions to commercial developments, 
-            each project showcases our commitment to quality, innovation, and client satisfaction.
+            Discover our extensive portfolio of construction projects. From
+            residential extensions to commercial developments, each project
+            showcases our commitment to quality, innovation, and client
+            satisfaction.
           </p>
         </div>
 
         {loading ? (
           <div className="text-center py-20">
             <div className="w-12 h-12 border-4 border-[#CC3333] border-t-transparent rounded-full animate-spin mx-auto mb-6" />
-            <p className="text-xl text-gray-600 font-medium">Loading projects...</p>
+            <p className="text-xl text-gray-600 font-medium">
+              Loading projects...
+            </p>
           </div>
         ) : error ? (
           <div className="bg-red-50 border border-red-200 text-red-700 text-center p-8 rounded-2xl max-w-2xl mx-auto">
             <p className="mb-4 font-semibold text-xl">Error Loading Projects</p>
             <p className="text-lg">{error}</p>
-            <button 
+            <button
               onClick={fetchProjects}
               className="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
             >
@@ -416,18 +495,22 @@ export default function ProjectsPage() {
         ) : filteredProjects.length === 0 ? (
           <div className="text-center py-20">
             <Building className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <p className="text-xl text-gray-500 font-medium">No projects found</p>
-            <p className="text-gray-400 mt-2">Try adjusting your search or filter criteria</p>
+            <p className="text-xl text-gray-500 font-medium">
+              No projects found
+            </p>
+            <p className="text-gray-400 mt-2">
+              Try adjusting your search or filter criteria
+            </p>
           </div>
         ) : (
           <>
             {/* Projects Grid */}
             <div className="space-y-12">
               {currentProjects.map((project) => (
-                <ProjectCard 
-                  key={project._id} 
-                  project={project} 
-                  onPreview={() => setSelectedProject(project)} 
+                <ProjectCard
+                  key={project._id}
+                  project={project}
+                  onPreview={() => setSelectedProject(project)}
                 />
               ))}
             </div>
@@ -469,7 +552,10 @@ export default function ProjectsPage() {
 
         {/* Project Modal */}
         {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
         )}
       </section>
 

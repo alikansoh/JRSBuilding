@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Droplets,
   Sparkles,
@@ -200,14 +201,14 @@ export default function BathroomUpgradesPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-            <button className="inline-flex items-center bg-[#CC3333] text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-[#aa2828] transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+            <Link
+              href="/contact"
+              className="inline-flex items-center bg-[#CC3333] text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-[#aa2828] transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 cursor-pointer"
+            >
               <Sparkles className="w-6 h-6 mr-3" />
               <span>Start Your Transformation</span>
               <ArrowRight className="w-6 h-6 ml-3" />
-            </button>
-            <button className="inline-flex items-center border-2 border-[#CC3333] text-[#CC3333] font-bold text-lg px-10 py-5 rounded-2xl hover:bg-[#CC3333] hover:text-white transition-all duration-300">
-              <span>View All Projects</span>
-            </button>
+            </Link>
           </div>
 
           {/* Stats */}
@@ -323,7 +324,6 @@ export default function BathroomUpgradesPage() {
           </div>
         </section>
 
-
         {/* Services Section */}
         <section className="mb-20">
           <div className="text-center mb-16">
@@ -398,10 +398,13 @@ export default function BathroomUpgradesPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button className="inline-flex items-center bg-white text-[#CC3333] font-bold text-lg px-10 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+              <Link
+                href="/contact"
+                className="inline-flex items-center bg-white text-[#CC3333] font-bold text-lg px-10 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 cursor-pointer"
+              >
                 <Phone className="w-5 h-5 mr-3" />
                 <span>Free Design Consultation</span>
-              </button>
+              </Link>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 text-white/90">
                 <div className="flex items-center space-x-2">

@@ -29,7 +29,7 @@ export default function Footer() {
           <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
           <ul className="space-y-3 text-sm text-gray-300">
             <li className="flex items-center gap-3">
-              <FaPhone className="text-[#CC3333]" /> +44 7555 123456
+              <FaPhone className="text-[#CC3333]" /> +44 7494 287777
             </li>
             <li className="flex items-center gap-3">
               <FaEnvelope className="text-[#CC3333]" /> info@jrs-building.co.uk
