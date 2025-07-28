@@ -95,13 +95,14 @@ const ProjectImageSlider = ({ images, title }: { images: string[]; title: string
 
   return (
     <div className="relative h-80 md:h-120 w-full group overflow-hidden rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none">
-      <img
-        src={images[currentIndex]}
-        alt={`${title} - Image ${currentIndex + 1}`}
-        className="w-full h-full object-cover"
-        onLoad={() => setIsLoading(false)}
-        onError={() => setIsLoading(false)}
-      />
+    <img
+  src={images[currentIndex]}
+  alt={`${title} - Image ${currentIndex + 1}`}
+  className="w-full h-full object-contain bg-white p-4"
+  onLoad={() => setIsLoading(false)}
+  onError={() => setIsLoading(false)}
+/>
+
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
           <Loader2 className="w-6 h-6 animate-spin text-[#CC3333]" />

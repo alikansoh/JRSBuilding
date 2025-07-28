@@ -12,21 +12,17 @@ export default async function handler(req, res) {
   try {
     switch (method) {
       case 'GET':
-        await getProjectById(req, res);
-        break;
+        return await getProjectById(req, res);
       case 'PUT':
-        await updateProject(req, res);
-        break;
+        return await updateProject(req, res);
       case 'DELETE':
-        await deleteProject(req, res);
-        break;
+        return await deleteProject(req, res);
       default:
         res.setHeader('Allow', ['GET', 'PUT', 'DELETE']);
-        res.status(405).json({ success: false, error: `Method ${method} Not Allowed` });
-        break;
+        return res.status(405).json({ success: false, error: `Method ${method} Not Allowed` });
     }
   } catch (error) {
     console.error('API handler error:', error);
-    res.status(500).json({ success: false, error: 'Internal server error' });
+    return res.status(500).json({ success: false, error: 'Internal server error' });
   }
 }
