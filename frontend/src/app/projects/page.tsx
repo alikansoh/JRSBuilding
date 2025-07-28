@@ -54,8 +54,8 @@ const HeroStats = () => (
   <div className="bg-gradient-to-r from-[#CC3333] to-[#AA2828] text-white py-16">
     <div className="max-w-6xl mx-auto px-4">
       <div className="text-center mb-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Trusted Building Partner</h2>
-      <p className="text-xl opacity-90 max-w-2xl mx-auto">
+<h2 className="text-3xl md:text-4xl font-bold mb-4">Your Trusted Building Partner</h2>
+        <p className="text-xl opacity-90 max-w-2xl mx-auto">
           We&apos;ve been transforming spaces and exceeding expectations for over two decades
         </p>
       </div>
@@ -95,14 +95,13 @@ const ProjectImageSlider = ({ images, title }: { images: string[]; title: string
 
   return (
     <div className="relative h-80 md:h-120 w-full group overflow-hidden rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none">
-    <img
-  src={images[currentIndex]}
-  alt={`${title} - Image ${currentIndex + 1}`}
-  className="w-full h-full object-contain bg-white p-4"
-  onLoad={() => setIsLoading(false)}
-  onError={() => setIsLoading(false)}
-/>
-
+      <img
+        src={images[currentIndex]}
+        alt={`${title} - Image ${currentIndex + 1}`}
+        className=" h-full object-cover"
+        onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(false)}
+      />
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
           <Loader2 className="w-6 h-6 animate-spin text-[#CC3333]" />
