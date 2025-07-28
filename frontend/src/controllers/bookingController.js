@@ -25,12 +25,12 @@ export const getBookingById = async (req, res) => {
 
 export const createBooking = async (req, res) => {
   await dbConnect();
-  const { fullName, email, details } = req.body;
-  if (!fullName || !email || !details) {
+  const { fullName, email, telephone, details } = req.body;
+  if (!fullName || !email || !telephone || !details) {
     return res.status(400).json({ message: 'All fields are required' });
   }
   try {
-    const newBooking = await Booking.create({ fullName, email, details });
+    const newBooking = await Booking.create({ fullName, email, telephone, details });
     res.status(201).json(newBooking);
   } catch (error) {
     res.status(500).json({ message: 'Failed to create booking' });
@@ -40,14 +40,14 @@ export const createBooking = async (req, res) => {
 export const updateBooking = async (req, res) => {
   await dbConnect();
   const { id } = req.query;
-  const { fullName, email, details } = req.body;
-  if (!fullName || !email || !details) {
+  const { fullName, email, telephone, details } = req.body;
+  if (!fullName || !email || !telephone || !details) {
     return res.status(400).json({ message: 'All fields are required' });
   }
   try {
     const updatedBooking = await Booking.findByIdAndUpdate(
       id,
-      { fullName, email, details },
+      { fullName, email, telephone, details },
       { new: true }
     );
     if (!updatedBooking) return res.status(404).json({ message: 'Booking not found' });

@@ -7,6 +7,7 @@ type Booking = {
   _id: string;
   fullName: string;
   email: string;
+  phone: string;
   details: string;
 };
 
@@ -65,6 +66,7 @@ export default function BookingsPage() {
               <tr>
                 <th className="p-3 text-left text-sm font-semibold">Full Name</th>
                 <th className="p-3 text-left text-sm font-semibold">Email</th>
+                <th className="p-3 text-left text-sm font-semibold hidden sm:table-cell">Phone</th>
                 <th className="p-3 text-left text-sm font-semibold hidden sm:table-cell">Details Preview</th>
                 <th className="p-3 text-right text-sm font-semibold">Actions</th>
               </tr>
@@ -72,7 +74,7 @@ export default function BookingsPage() {
             <tbody>
               {bookings.length === 0 && (
                 <tr>
-                  <td colSpan={4} className="p-4 text-center text-gray-400">
+                  <td colSpan={5} className="p-4 text-center text-gray-400">
                     No bookings found.
                   </td>
                 </tr>
@@ -86,21 +88,41 @@ export default function BookingsPage() {
                 >
                   <td className="p-3 text-sm">{booking.fullName}</td>
                   <td className="p-3 text-sm">{booking.email}</td>
+                  <td className="p-3 text-sm hidden sm:table-cell">{booking.phone}</td>
                   <td className="p-3 text-sm hidden sm:table-cell">
                     {booking.details.length > 50
                       ? booking.details.slice(0, 50) + '...'
                       : booking.details}
                   </td>
-                  <td className="p-3 text-right">
+                  <td className="p-3 text-right space-x-2">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         handleDelete(booking._id);
                       }}
                       className="text-sm px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition"
+                      aria-label={`Delete booking for ${booking.fullName}`}
                     >
                       Delete
                     </button>
+
+                    <a
+                      href={`mailto:${booking.email}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-sm px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                      aria-label={`Send email to ${booking.email}`}
+                    >
+                      Email
+                    </a>
+
+                    <a
+                      href={`tel:${booking.phone}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-sm px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition"
+                      aria-label={`Call ${booking.phone}`}
+                    >
+                      Call
+                    </a>
                   </td>
                 </tr>
               ))}
@@ -109,7 +131,6 @@ export default function BookingsPage() {
         </div>
       )}
 
-      {/* Modal for Booking Details */}
       {selectedBooking && (
         <div
           onClick={() => setSelectedBooking(null)}
@@ -125,6 +146,9 @@ export default function BookingsPage() {
             </p>
             <p>
               <strong>Email:</strong> {selectedBooking.email}
+            </p>
+            <p>
+              <strong>Phone:</strong> {selectedBooking.phone}
             </p>
             <p className="mt-4 whitespace-pre-wrap">
               <strong>Details:</strong> {selectedBooking.details}

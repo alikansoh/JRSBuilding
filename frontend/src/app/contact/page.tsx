@@ -8,6 +8,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    telephone: '',  // Added phone here
     message: '',
   });
 
@@ -23,11 +24,10 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Clear previous messages
     setStatusMessage(null);
 
-    // Simple validation (already required in inputs)
-    if (!formData.name || !formData.email || !formData.message) {
+    // Simple validation including phone
+    if (!formData.name || !formData.email || !formData.telephone || !formData.message) {
       setStatusMessage({ type: 'error', text: 'Please fill all required fields.' });
       return;
     }
@@ -41,6 +41,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           fullName: formData.name,
           email: formData.email,
+          telephone: formData.telephone,  // Sending phone
           details: formData.message,
         }),
       });
@@ -48,9 +49,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error('Failed to send booking');
 
       setStatusMessage({ type: 'success', text: 'Thank you! Your message has been sent.' });
-
-      // Reset form
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', telephone: '', message: '' });
     } catch (error) {
       setStatusMessage({ type: 'error', text: 'Oops! Something went wrong. Please try again later.' });
     } finally {
@@ -146,6 +145,30 @@ export default function ContactPage() {
                   />
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                     <span className="text-gray-400 text-sm">✉️</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* New Phone Number Input */}
+              <div className="group">
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2 group-focus-within:text-[#CC3333] transition-colors">
+                  Phone Number *
+                </label>
+                <div className="relative">
+                  <input
+                    type="tel"
+                    id="telephone"
+                    className="w-full border-2 border-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-[#CC3333] focus:ring-4 focus:ring-[#CC3333]/10 transition-all duration-300 hover:border-gray-300 placeholder-gray-400"
+                    placeholder="+44 1234 567890"
+                    value={formData.telephone}
+                    onChange={handleChange}
+                    required
+                    disabled={sending}
+                    pattern="^\+?[0-9\s\-]{7,15}$"
+                    title="Please enter a valid phone number"
+                  />
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <span className="text-gray-400 text-sm">📞</span>
                   </div>
                 </div>
               </div>
