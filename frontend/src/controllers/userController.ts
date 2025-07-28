@@ -31,11 +31,16 @@ export async function createUser({ username, password }: { username: string; pas
   return user._id;
 }
 
-export async function updateUser(id: string, data: { username?: string; password?: string }) {
+type UpdateUserData = {
+  username?: string;
+  password?: string;
+};
+
+export async function updateUser(id: string, data: UpdateUserData) {
   await connect();
   if (!mongoose.Types.ObjectId.isValid(id)) throw new Error('Invalid user ID');
 
-  const update: any = {};
+  const update: UpdateUserData = {};
   if (data.username) update.username = data.username;
   if (data.password) update.password = await bcrypt.hash(data.password, 10);
 
