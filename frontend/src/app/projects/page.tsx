@@ -98,7 +98,7 @@ const ProjectImageSlider = ({ images, title }: { images: string[]; title: string
       <img
         src={images[currentIndex]}
         alt={`${title} - Image ${currentIndex + 1}`}
-        className=" h-full object-cover"
+        className="w-[50rem] h-full object-cover"
         onLoad={() => setIsLoading(false)}
         onError={() => setIsLoading(false)}
       />
