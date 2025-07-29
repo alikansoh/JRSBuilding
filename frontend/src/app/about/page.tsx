@@ -2,6 +2,20 @@ export const metadata = {
   title: "About Us | JRS Building Company",
   description:
     "Learn more about JRS Building Company, a trusted name in UK construction. We specialise in renovations, extensions, new builds, and project management with over 20 years of experience.",
+  openGraph: {
+    title: "About Us | JRS Building Company",
+    description:
+      "Learn more about JRS Building Company, a trusted name in UK construction. We specialise in renovations, extensions, new builds, and project management with over 20 years of experience.",
+    url: "https://jrs-building.co.uk/about",
+    images: [
+      {
+        url: "https://jrs-building.co.uk/og.png",
+        width: 1200,
+        height: 630,
+        alt: "About Us | JRS Building Company",
+      },
+    ],
+  },
 };
 
 import Image from "next/image";

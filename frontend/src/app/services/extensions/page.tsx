@@ -1,5 +1,25 @@
-"use client";
-
+export const metadata = {
+  title: "Outdoor Summer Houses & Paving Services | JRS Building Company",
+  description:
+    "Professional outdoor construction services including custom summer houses, expert paving installations, patios, walkways, and outdoor living spaces for residential and commercial properties.",
+  openGraph: {
+    title: "Outdoor Summer Houses & Paving Services | JRS Building Company",
+    description:
+      "Professional outdoor construction services including custom summer houses, expert paving installations, patios, walkways, and outdoor living spaces for residential and commercial properties.",
+    url: "/services/outdoor-construction",
+    siteName: "JRS Building Company",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Outdoor Summer Houses and Paving Services by JRS Building Company",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+};
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";

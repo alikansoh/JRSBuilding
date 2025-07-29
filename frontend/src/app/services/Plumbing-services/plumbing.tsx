@@ -1,30 +1,10 @@
-export const metadata = {
-  title: "Kitchen Renovations London | JRS Building Company",
-  description:
-    "Transform your kitchen with expert renovations in London. Improve functionality, add style, and increase your home's value with our tailored kitchen solutions.",
-  openGraph: {
-    title: "Kitchen Renovations London | JRS Building Company",
-    description:
-      "Transform your kitchen with expert renovations in London. Improve functionality, add style, and increase your home's value with our tailored kitchen solutions.",
-    url: "/services/kitchen-remodeling",
-    siteName: "JRS Building Company",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Kitchen Renovations by JRS Building Company",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-};
+"use client";
 
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  ChefHat,
+  Droplets,
   Home,
   Building,
   Wrench,
@@ -39,129 +19,114 @@ import {
   Award,
   AlertTriangle,
   Settings,
-  Lightbulb,
+  Thermometer,
   Zap,
-  Utensils
+  Bath
 } from "lucide-react";
 
-const kitchenServices = [
+const plumbingServices = [
   {
-    title: "Complete Kitchen Design & Installation",
-    description: "Full kitchen design service from initial consultation through to final installation. We create bespoke kitchen layouts that maximize space, functionality, and style while coordinating all trades including plumbing, electrical, and carpentry work.",
-    keywords: ["kitchen design", "kitchen installation", "bespoke kitchens"],
-    image: "/kitchen.jpeg"
+    title: "Bathroom Plumbing During Renovations",
+    description: "Complete bathroom plumbing services as part of your renovation project. We install new bathroom suites, shower systems, underfloor heating, and all associated pipework coordinated with your bathroom renovation timeline.",
+    keywords: ["bathroom plumbing renovation", "shower installation", "bathroom suite plumbing"],
+    image: "/plumbing2.jpeg"
   },
   {
-    title: "Kitchen Cabinet & Worktop Installation",
-    description: "Professional installation of kitchen cabinets, worktops, and storage solutions. We work with all materials including granite, quartz, wood, and laminate surfaces, ensuring perfect fitting and finishing to the highest standards.",
-    keywords: ["kitchen cabinets", "worktop installation", "kitchen storage"],
-    image: "/kit2.jpeg"
+    title: "Kitchen Plumbing & Appliance Connections",
+    description: "Kitchen plumbing installations during renovations including sink connections, dishwasher plumbing, washing machine connections, and gas cooker installations. All work coordinated with kitchen fitting schedules.",
+    keywords: ["kitchen plumbing renovation", "appliance connections", "sink installation"],
+    image: "/plumbing4.jpeg"
   },
   {
-    title: "Kitchen Appliance Integration",
-    description: "Complete appliance installation and integration including built-in ovens, hobs, dishwashers, and refrigeration units. All electrical and plumbing connections handled by our qualified tradespeople as part of the renovation.",
-    keywords: ["kitchen appliances", "appliance integration", "built-in appliances"],
-    image: "/kit3.jpeg"
+    title: "Central Heating & Boiler Installations",
+    description: "Central heating system installations and boiler replacements as part of renovation projects. We install new heating systems, radiators, and underfloor heating coordinated with building work timelines.",
+    keywords: ["boiler installation renovation", "central heating systems", "radiator installation"],
+    image: "/plumbing1.jpeg"
   }
 ];
 
-const kitchenGallery = [
-  {
-    image: "/kitchen-work-1.jpg",
-    title: "Modern Kitchen Renovation",
-    description: "Complete kitchen transformation with island unit and integrated appliances in contemporary home."
-  },
-  {
-    image: "/kitchen-work-2.jpg",
-    title: "Traditional Kitchen Remodel",
-    description: "Classic kitchen design with shaker-style cabinets and granite worktops in period property renovation."
-  },
-  {
-    image: "/kitchen-work-3.jpg",
-    title: "Open Plan Kitchen Extension",
-    description: "Kitchen remodeling as part of rear extension project creating open plan living space."
-  }
-];
+
 
 const renovationPhases = [
   {
-    phase: "Design & Planning Phase",
-    description: "Working with you to create the perfect kitchen design that meets your needs, budget, and lifestyle. We handle space planning, material selection, and coordinate with building regulations.",
-    tasks: ["Kitchen layout design", "Material and appliance selection", "Building regulations approval", "Project timeline planning"]
+    phase: "Planning & Design Phase",
+    description: "Working with our building team to plan plumbing layouts, heating systems, and water supply requirements for your renovation project.",
+    tasks: ["Plumbing system design", "Heating system planning", "Water pressure assessment", "Drainage planning"]
   },
   {
-    phase: "Structural & Services Phase",
-    description: "Preparing the space with any necessary structural work, electrical upgrades, and plumbing modifications before kitchen installation begins.",
-    tasks: ["Wall removal or construction", "Electrical circuit installation", "Plumbing modifications", "Flooring preparation"]
+    phase: "First Fix Plumbing",
+    description: "Installing pipework, waste connections, and heating circuits during the construction phase, coordinated with building work.",
+    tasks: ["Hot and cold water pipework", "Central heating pipework", "Waste pipe installation", "Gas pipe installation"]
   },
   {
-    phase: "Kitchen Installation Phase",
-    description: "Professional installation of your new kitchen including cabinets, worktops, appliances, and all finishing touches to create your dream cooking space.",
-    tasks: ["Cabinet installation", "Worktop fitting", "Appliance integration", "Tiling and decoration"]
+    phase: "Second Fix Plumbing",
+    description: "Final plumbing installations after building work completion, including fixture fitting and system commissioning.",
+    tasks: ["Bathroom suite installation", "Kitchen appliance connections", "Radiator installation", "System testing and commissioning"]
   }
 ];
 
 const whyChooseUs = [
   {
     icon: <Building className="w-6 h-6" />,
-    title: "Complete Project Management",
-    description: "Our kitchen remodeling is part of our complete building service, ensuring all trades are coordinated and the project runs smoothly from start to finish."
+    title: "Integrated Building Services",
+    description: "Our plumbers work as part of our complete building team, ensuring seamless coordination with other trades during your renovation."
   },
   {
     icon: <Award className="w-6 h-6" />,
-    title: "Experienced Kitchen Specialists",
-    description: "Our team includes experienced kitchen fitters, carpenters, and designers who understand both traditional and contemporary kitchen installations."
+    title: "Experienced Plumbing Team",
+    description: "All plumbing work carried out by experienced plumbers with extensive knowledge of renovation projects and building work."
   },
   {
     icon: <Shield className="w-6 h-6" />,
-    title: "Quality Materials & Workmanship",
-    description: "We use only high-quality materials and provide comprehensive guarantees on all kitchen installation work and appliances."
+    title: "Fully Insured & Guaranteed",
+    description: "All plumbing work comes with comprehensive guarantees and full public liability insurance for your peace of mind."
   },
   {
     icon: <Clock className="w-6 h-6" />,
-    title: "Efficient Installation Process",
-    description: "Streamlined installation process with minimal disruption to your daily routine, managed by our experienced project coordinators."
+    title: "Project Coordination",
+    description: "Plumbing work fully coordinated with your renovation timeline, managed by our experienced project managers."
   }
 ];
 
 const additionalServices = [
   {
-    title: "Kitchen Extensions & Structural Work",
-    description: "Kitchen remodeling as part of house extensions or structural alterations. We handle building work, planning permissions, and create larger kitchen spaces.",
-    keywords: ["kitchen extension", "structural alterations", "planning permission"]
+    title: "Extension & New Build Plumbing",
+    description: "Complete plumbing installations for house extensions and new build properties. From first fix plumbing through to final connections, all coordinated with construction phases.",
+    keywords: ["extension plumbing", "new build plumbing", "construction plumbing"]
   },
   {
-    title: "Kitchen Electrical & Plumbing Upgrades", 
-    description: "Complete electrical and plumbing upgrades to support modern kitchen appliances and lighting. All work carried out by qualified electricians and plumbers.",
-    keywords: ["kitchen electrical work", "kitchen plumbing", "appliance connections"]
+    title: "Plumbing Repairs & Maintenance", 
+    description: "Emergency plumbing repairs and routine maintenance as part of our renovation aftercare service. We handle leaks, blockages, and plumbing issues that arise during projects.",
+    keywords: ["plumbing repairs", "emergency plumber", "plumbing maintenance"]
   },
   {
-    title: "Kitchen Flooring & Tiling Services",
-    description: "Professional flooring installation and wall tiling services as part of your kitchen remodel. We work with all materials including ceramic, porcelain, and natural stone.",
-    keywords: ["kitchen flooring", "kitchen tiling", "splashback installation"]
+    title: "Drainage & Waste Systems",
+    description: "New drainage installations and waste system connections for renovations and extensions. We handle soil pipes, waste connections, and external drainage work.",
+    keywords: ["drainage installation", "waste systems", "soil pipe installation"]
   }
 ];
 
-export default function KitchenRemodelingPage() {
+export default function PlumbingServicesPage() {
+  const [activeGalleryImage, setActiveGalleryImage] = useState(0);
 
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-orange-50 pt-32 pb-20">
+      <section className="bg-gradient-to-br from-gray-50 to-blue-50 pt-32 pb-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-orange-100 px-6 py-3 rounded-full mb-8">
-              <ChefHat className="w-5 h-5 text-[#CC3333]" />
-              <span className="text-sm font-semibold text-[#CC3333] uppercase tracking-wide">Kitchen Remodeling Services</span>
+            <div className="inline-flex items-center space-x-2 bg-blue-100 px-6 py-3 rounded-full mb-8">
+              <Droplets className="w-5 h-5 text-[#CC3333]" />
+              <span className="text-sm font-semibold text-[#CC3333] uppercase tracking-wide">Renovation Plumbing Services</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black mb-8 leading-tight text-[#1C1C3A]">
-              Professional Kitchen Remodeling & Design
+              Professional Plumbing for House Renovations
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto">
-              Transform your kitchen with our complete remodeling service. From design consultation through to final installation, 
-              we create beautiful, functional kitchens that become the heart of your home.
+              Complete plumbing services as part of your house renovation project. Our experienced plumbers work 
+              alongside our building team to deliver reliable plumbing installations for bathrooms, kitchens, extensions, and heating systems.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -170,7 +135,7 @@ export default function KitchenRemodelingPage() {
       className="inline-flex items-center bg-[#CC3333] text-white font-bold text-lg px-10 py-5 rounded-2xl hover:bg-[#aa2828] transition-all duration-300 shadow-xl cursor-pointer"
     >
       <Phone className="w-6 h-6 mr-3" />
-      <span>Start Your Kitchen Project</span>
+      <span>Discuss Your Renovation</span>
       <ArrowRight className="w-6 h-6 ml-3" />
     </Link>
             </div>
@@ -179,32 +144,32 @@ export default function KitchenRemodelingPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20">
+      <section className="py-20 ">
         <div className="max-w-4xl mx-auto px-4">
           
           {/* Introduction */}
-          <div className="mb-16">
+          <div className="mb-16 ">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[#1C1C3A]">
-              Complete Kitchen Remodeling Solutions
+              Plumbing Services Integrated with Your Renovation
             </h2>
             
             <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
               <p>
-                At JRS Building, kitchen remodeling is one of our specialist services, combining expert design, 
-                quality craftsmanship, and project management to create kitchens that are both beautiful and highly functional. 
-                We understand that the kitchen is the heart of the home, and our approach ensures every detail is perfect.
+                At JRS Building, plumbing work is seamlessly integrated into every renovation project we undertake. 
+                Our experienced plumbing team works closely with our builders, electricians, and other trades to ensure 
+                your renovation includes modern, efficient plumbing systems that meet all current building standards.
               </p>
               
               <p>
-                Our kitchen remodeling service covers everything from initial design concepts through to final installation 
-                and finishing. We work with you to understand your cooking habits, lifestyle needs, and design preferences 
-                to create a kitchen that truly works for your family.
+                Whether you&apos;re renovating a bathroom, updating your kitchen, extending your home, or undertaking a 
+                complete house refurbishment, we handle all plumbing aspects as part of the overall project. This 
+                integrated approach ensures better coordination, timing, and cost-effectiveness compared to hiring separate contractors.
               </p>
               
               <p>
-                As part of our complete building service, kitchen remodeling projects benefit from seamless coordination 
-                with other trades including electrical work, plumbing, structural alterations, and decorating. This integrated 
-                approach ensures your kitchen project runs smoothly and is completed to the highest standards.
+                From initial plumbing design and planning through to testing and commissioning, our plumbing services 
+                are fully coordinated with the renovation timeline. We handle everything from new installations and 
+                heating systems to repairs and maintenance, all as part of your complete renovation package.
               </p>
             </div>
           </div>
@@ -212,11 +177,11 @@ export default function KitchenRemodelingPage() {
           {/* Main Services Section with Images */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#1C1C3A] text-center">
-              Our Kitchen Remodeling Services
+              Our Main Renovation Plumbing Services
             </h2>
 
             <div className="space-y-12">
-              {kitchenServices.map((service, index) => (
+              {plumbingServices.map((service, index) => (
                 <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100`}>
                   {/* Image Section */}
                   <div className="lg:w-1/2">
@@ -255,7 +220,7 @@ export default function KitchenRemodelingPage() {
           {/* Additional Services (Text Only) */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#1C1C3A] text-center">
-              Additional Kitchen Services
+              Additional Plumbing Services
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -279,19 +244,19 @@ export default function KitchenRemodelingPage() {
             </div>
           </div>
 
-        
+       
 
-          {/* Kitchen Remodeling Process */}
+          {/* Renovation Process */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[#1C1C3A]">
-              Our Kitchen Remodeling Process
+              How We Integrate Plumbing Into Your Renovation
             </h2>
             
             <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6 mb-8">
               <p>
-                Our kitchen remodeling process is designed to minimize disruption while ensuring exceptional results. 
-                We work closely with you throughout every stage, from initial design concepts through to final completion 
-                and handover of your new kitchen.
+                Our plumbing work is carefully coordinated with all other aspects of your renovation project. 
+                We follow a structured approach that ensures plumbing installations are completed at the right 
+                time in the renovation process, avoiding delays and ensuring quality results.
               </p>
             </div>
 
@@ -317,34 +282,34 @@ export default function KitchenRemodelingPage() {
             </div>
           </div>
 
-          {/* Kitchen Styles & Options */}
+          {/* Types of Renovation Plumbing Work */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[#1C1C3A]">
-              Kitchen Styles & Design Options
+              Plumbing Work for Different Types of Renovations
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 rounded-2xl p-8">
                 <div className="w-12 h-12 bg-[#CC3333] rounded-xl flex items-center justify-center text-white mb-4">
-                  <Utensils className="w-6 h-6" />
+                  <Bath className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#1C1C3A]">Modern & Contemporary</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#1C1C3A]">Bathroom Renovations</h3>
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Sleek handleless cabinets</span>
+                    <span className="text-gray-700">Complete bathroom suite installations</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Quartz and granite worktops</span>
+                    <span className="text-gray-700">Walk-in shower and bath installations</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Integrated appliances</span>
+                    <span className="text-gray-700">Underfloor heating systems</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">LED lighting systems</span>
+                    <span className="text-gray-700">Towel radiator installations</span>
                   </div>
                 </div>
               </div>
@@ -353,23 +318,23 @@ export default function KitchenRemodelingPage() {
                 <div className="w-12 h-12 bg-[#CC3333] rounded-xl flex items-center justify-center text-white mb-4">
                   <Settings className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#1C1C3A]">Traditional & Classic</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#1C1C3A]">Kitchen Renovations</h3>
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Shaker-style cabinet doors</span>
+                    <span className="text-gray-700">Kitchen sink and tap installations</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Natural wood worktops</span>
+                    <span className="text-gray-700">Dishwasher and washing machine connections</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Range-style cooking</span>
+                    <span className="text-gray-700">Gas cooker and hob connections</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Classic tile splashbacks</span>
+                    <span className="text-gray-700">Water filtration system installations</span>
                   </div>
                 </div>
               </div>
@@ -378,58 +343,58 @@ export default function KitchenRemodelingPage() {
                 <div className="w-12 h-12 bg-[#CC3333] rounded-xl flex items-center justify-center text-white mb-4">
                   <Home className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#1C1C3A]">Open Plan Kitchens</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#1C1C3A]">House Extensions</h3>
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Kitchen islands and peninsulas</span>
+                    <span className="text-gray-700">New plumbing systems for extensions</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Breakfast bars and dining areas</span>
+                    <span className="text-gray-700">Connection to existing water supply</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Integrated living spaces</span>
+                    <span className="text-gray-700">Heating system extensions</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Bi-fold doors to gardens</span>
+                    <span className="text-gray-700">New drainage connections</span>
                   </div>
                 </div>
               </div>
 
               <div className="bg-gray-50 rounded-2xl p-8">
                 <div className="w-12 h-12 bg-[#CC3333] rounded-xl flex items-center justify-center text-white mb-4">
-                  <Lightbulb className="w-6 h-6" />
+                  <Thermometer className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[#1C1C3A]">Smart Kitchen Technology</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#1C1C3A]">Heating Systems</h3>
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Smart appliance integration</span>
+                    <span className="text-gray-700">New boiler installations</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Automated lighting controls</span>
+                    <span className="text-gray-700">Central heating system upgrades</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">USB charging points</span>
+                    <span className="text-gray-700">Radiator installations and replacements</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-[#CC3333] mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Wireless device connectivity</span>
+                    <span className="text-gray-700">Smart heating controls</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Why Choose Our Kitchen Service */}
+          {/* Why Choose Our Integrated Service */}
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#1C1C3A] text-center">
-              Why Choose Our Kitchen Remodeling Service?
+              Why Choose Our Integrated Renovation Plumbing Service?
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -447,28 +412,59 @@ export default function KitchenRemodelingPage() {
             </div>
           </div>
 
-          {/* Project Planning */}
+          {/* Emergency Plumbing */}
           <div className="mb-16">
-            <div className="bg-orange-50 border border-orange-200 rounded-2xl p-8">
+            <div className="bg-red-50 border border-red-200 rounded-2xl p-8">
               <div className="flex items-center mb-6">
-                <AlertTriangle className="w-8 h-8 text-orange-600 mr-4" />
-                <h2 className="text-2xl font-bold text-orange-800">
-                  Planning Your Kitchen Remodel
+                <AlertTriangle className="w-8 h-8 text-red-600 mr-4" />
+                <h2 className="text-2xl font-bold text-red-800">
+                  Emergency Plumbing Support During Renovations
                 </h2>
               </div>
               
               <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
                 <p>
-                  Kitchen remodeling requires careful planning to ensure the best results within your budget and timeline. 
-                  We work with you from the earliest stages to understand your needs, assess your space, and create a 
-                  design that maximizes both functionality and aesthetic appeal.
+                  Plumbing emergencies can disrupt renovation projects and cause significant damage. As part of our 
+                  renovation service, we provide emergency plumbing support to quickly resolve any issues that arise 
+                  during or after your renovation project.
                 </p>
                 
                 <p>
-                  <strong>Key considerations we discuss:</strong> Your cooking and entertaining style, storage requirements, 
-                  appliance preferences, lighting needs, and how the kitchen connects with other areas of your home.
+                  <strong>Emergency situations we handle:</strong> Burst pipes, water leaks, heating system failures, 
+                  blocked drains, and any plumbing issues that could delay your renovation or cause property damage.
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* Planning Section */}
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[#1C1C3A]">
+              Planning Plumbing Work for Your Renovation
+            </h2>
+            
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
+              <p>
+                Proper planning of plumbing work is essential for successful renovations. We work with you from the 
+                early planning stages to understand your plumbing needs and integrate them into the overall renovation design.
+              </p>
+              
+              <h3 className="text-xl font-semibold text-[#1C1C3A] mt-8 mb-4">What We Consider During Planning:</h3>
+              <ul className="list-disc list-inside space-y-2 text-gray-700">
+                <li>Existing plumbing system condition and capacity</li>
+                <li>New plumbing requirements for renovated spaces</li>
+                <li>Water pressure and flow rate assessments</li>
+                <li>Heating system efficiency and upgrades</li>
+                <li>Building regulations and safety compliance</li>
+                <li>Coordination with other trades and timelines</li>
+                <li>Future maintenance and accessibility considerations</li>
+              </ul>
+              
+              <p>
+                Our integrated approach means you have one point of contact for your entire renovation, including 
+                plumbing work. This eliminates coordination issues between different contractors and ensures your 
+                renovation runs smoothly from start to finish.
+              </p>
             </div>
           </div>
         </div>
@@ -478,16 +474,16 @@ export default function KitchenRemodelingPage() {
       <section className="bg-gradient-to-r from-[#CC3333] via-[#b62d2d] to-[#CC3333] py-16">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-2xl backdrop-blur-sm mb-8">
-            <ChefHat className="w-10 h-10" />
+            <Droplets className="w-10 h-10" />
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-            Create Your Dream Kitchen Today
+            Include Professional Plumbing in Your Renovation
           </h2>
 
           <p className="text-xl mb-10 leading-relaxed opacity-90 max-w-3xl mx-auto">
-            Transform your kitchen with our complete remodeling service. From design consultation to final installation, 
-            we&apos;ll create a beautiful, functional space that becomes the heart of your home.
+            Get expert plumbing services as part of your complete renovation package. 
+            Our integrated approach ensures quality, coordination, and reliable results for your project.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
@@ -496,7 +492,7 @@ export default function KitchenRemodelingPage() {
       className="inline-flex items-center bg-white text-[#CC3333] font-bold text-lg px-10 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 shadow-xl cursor-pointer"
     >
       <Phone className="w-5 h-5 mr-3" />
-      <span>Start Your Kitchen Project</span>
+      <span>Discuss Your Renovation Project</span>
     </Link>
           </div>
 

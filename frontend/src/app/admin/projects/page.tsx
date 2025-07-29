@@ -728,12 +728,12 @@ export default function ProjectsAdminPage() {
                   )}
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200">
+                <div className="mb-30 flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200">
                   <button
                     type="button"
                     onClick={closeForm}
                     disabled={submitting}
-                    className="flex-1 order-2 sm:order-1 border-2 border-slate-300 hover:border-slate-400 active:border-slate-500 text-slate-700 hover:text-slate-800 active:text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50 active:bg-slate-100 touch-manipulation"
+                    className="flex-1 order-2 sm:order-1 border-2 border-slate-300 hover:border-slate-400 active:border-slate-500 text-slate-700 hover:text-slate-800 active:text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-50 active:bg-slate-100 touch-manipulation "
                   >
                     Cancel
                   </button>

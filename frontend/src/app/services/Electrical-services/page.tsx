@@ -1,5 +1,25 @@
-"use client";
-
+export const metadata = {
+  title: "Electrical Services London | JRS Building Company",
+  description:
+    "Trusted electrical services in London for installations, repairs, and maintenance. Our certified electricians ensure safe and efficient electrical solutions tailored to your needs.",
+  openGraph: {
+    title: "Electrical Services London | JRS Building Company",
+    description:
+      "Trusted electrical services in London for installations, repairs, and maintenance. Our certified electricians ensure safe and efficient electrical solutions tailored to your needs.",
+    url: "/services/Electrical-services",
+    siteName: "JRS Building Company",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Electrical Services by JRS Building Company",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+};
 import React from "react";
 import {
   Zap,

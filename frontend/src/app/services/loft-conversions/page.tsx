@@ -1,3 +1,28 @@
+export const metadata = {
+  title: "Loft Conversions London | JRS Building Company",
+  description:
+    "Expand your living space with expert loft conversions in London. Increase property value by up to 25%, add extra rooms without moving, and enjoy a cost-effective home improvement tailored to your family's needs.",
+  openGraph: {
+    title: "Loft Conversions London | JRS Building Company",
+    description:
+      "Expand your living space with expert loft conversions in London. Increase property value by up to 25%, add extra rooms without moving, and enjoy a cost-effective home improvement tailored to your family's needs.",
+    url: "/services/loft-conversions",
+    siteName: "JRS Building Company",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Loft Conversions by JRS Building Company",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+};
+
+
+
 import React from "react";
 import {
   Home,

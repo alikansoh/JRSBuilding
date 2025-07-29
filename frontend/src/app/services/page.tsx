@@ -1,4 +1,27 @@
-"use client";
+export const metadata = {
+  metadataBase: new URL("https://jrs-building.co.uk"),
+  title: "Our Services | JRS Building Company",
+  description:
+    "Discover expert building and renovation services by JRS Building Company in London. From home extensions to new builds, we deliver quality craftsmanship.",
+  openGraph: {
+    title: "Our Services | JRS Building Company",
+    description:
+      "Discover expert building and renovation services by JRS Building Company in London. From home extensions to new builds, we deliver quality craftsmanship.",
+    url: "/services",
+    siteName: "JRS Building Company",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "JRS Building Company Services",
+      },
+    ],
+    locale: "en_GB",
+    type: "website",
+  },
+};
+
 
 import {
   Building2,
@@ -14,7 +37,6 @@ import {
   Star,
 } from "lucide-react";
 import Link from "next/link";
-
 const services = [
   {
     icon: <Layers3 className="w-8 h-8" />,
@@ -112,6 +134,8 @@ const services = [
 
 export default function ServicesPage() {
   return (
+    <section>
+    
     <div className="bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
       <section className="mt-20 max-w-7xl mx-auto px-4 pt-24 pb-20 text-[#1C1C3A]">
         {/* Hero Section */}
@@ -252,5 +276,6 @@ export default function ServicesPage() {
         </section>
       </section>
     </div>
+    </section>
   );
 }
