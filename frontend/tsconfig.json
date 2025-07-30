@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Components/RecentProject.jsx", "src/app/services/home-renovations/page.tsx", "src/app/admin/projects/new/page.jsx", "src/app/admin/layout.tsx", "src/app/admin/projects/page.tsx", "src/app/projects/page.tsx", "src/controllers/bookingController.js", "src/pages/api/bookings/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Components/RecentProject.jsx", "src/app/services/home-renovations/page.tsx", "src/app/admin/projects/new/page.jsx", "src/app/admin/layout.tsx", "src/app/admin/projects/page.tsx", "src/app/projects/page.tsx", "src/controllers/bookingController.js", "src/pages/api/bookings/index.js", "next-sitemap.config.js"],
   "exclude": ["node_modules"]
 }

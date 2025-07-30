@@ -1,6 +1,5 @@
-import type { IConfig } from 'next-sitemap'
-
-const config: IConfig = {
+/** @type {import('next-sitemap').IConfig} */
+const config = {
   siteUrl: 'https://jrs-building.co.uk',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
@@ -8,16 +7,11 @@ const config: IConfig = {
   priority: 0.7,
   sitemapSize: 5000,
   exclude: ['/admin/*', '/api/*', '/private/*'],
-  
   robotsTxtOptions: {
     policies: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/admin', '/api', '/private'],
-      },
+      { userAgent: '*', allow: '/', disallow: ['/admin', '/api', '/private'] },
     ],
   },
-}
+};
 
-export default config
+module.exports = config;
