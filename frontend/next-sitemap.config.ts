@@ -20,21 +20,15 @@ const config: IConfig = {
     await config.transform(config, '/services/Commercial-Fit-Outs'),
     await config.transform(config, '/Electrical-services'),
     await config.transform(config, '/Plumbing-services'),
-
-
-
-
-
-
-
-
   ],
   robotsTxtOptions: {
     policies: [
-      { userAgent: '*', allow: '/' },
-      { userAgent: '*', disallow: ['/admin', '/api', '/private'] },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/admin', '/api', '/private'],
+      },
     ],
-    additionalSitemaps: ['https://jrs-building.co.uk/sitemap.xml'],
   },
 }
 
