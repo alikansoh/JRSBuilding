@@ -9,7 +9,3 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /private/
-
-# Allow all images
-User-agent: *
-Allow: /images/
